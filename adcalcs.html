@@ -3,107 +3,235 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>全能自媒体收益预估工具 - 2026专业版</title>
+    <title>全能自媒体收益预估工具 - 2026 Pro</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    </head>
-<body class="bg-gray-100 min-h-screen py-10 px-4">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        /* 隐藏数字输入框的箭头 */
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+        .fade-in { animation: fadeIn 0.3s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: { blue: '#2563eb', red: '#dc2626' }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body id="main-body" class="bg-slate-50 min-h-screen py-10 px-4 transition-colors duration-500">
 
-    <div class="max-w-2xl mx-auto">
-        <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
-            <div class="flex bg-gray-200">
-                <button onclick="switchTab('adsense')" id="tab-adsense" class="flex-1 py-4 font-bold text-blue-600 bg-white transition-all">网站 AdSense</button>
-                <button onclick="switchTab('youtube')" id="tab-youtube" class="flex-1 py-4 font-bold text-gray-600 hover:bg-gray-50 transition-all">YouTube 收益</button>
+    <div class="text-center mb-10 fade-in">
+        <h1 class="text-3xl md:text-4xl font-black text-slate-800 mb-2 tracking-tight">
+            💰 自媒体<span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">收益计算器</span>
+        </h1>
+        <p class="text-slate-500 font-medium">数据驱动 · 2026算法 · 极简预测</p>
+    </div>
+
+    <div class="max-w-3xl mx-auto">
+        <div class="bg-white/80 backdrop-blur-xl rounded-3xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] border border-white/50 overflow-hidden transition-all duration-300 hover:shadow-[0_25px_60px_-12px_rgba(0,0,0,0.15)]">
+            
+            <div class="flex p-2 bg-slate-100/50 m-2 rounded-2xl border border-slate-100">
+                <button onclick="switchTab('adsense')" id="tab-adsense" class="flex-1 py-3 px-4 rounded-xl font-bold text-sm md:text-base transition-all duration-300 shadow-sm bg-white text-blue-600 ring-1 ring-black/5 flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+                    网站 AdSense
+                </button>
+                <button onclick="switchTab('youtube')" id="tab-youtube" class="flex-1 py-3 px-4 rounded-xl font-bold text-sm md:text-base transition-all duration-300 text-slate-500 hover:text-slate-700 flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    YouTube 收益
+                </button>
             </div>
 
-            <div class="p-8">
-                <div id="panel-adsense" class="space-y-4">
-                    <h2 class="text-xl font-bold text-gray-800">网站广告收益预估</h2>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-500">日均页面浏览量 (PV)</label>
-                        <input type="number" id="as_pv" value="1000" oninput="calcAdSense()" class="w-full p-3 mt-1 border rounded-xl outline-none focus:ring-2 focus:ring-blue-400">
+            <div class="p-6 md:p-10">
+                <div id="panel-adsense" class="fade-in space-y-8">
+                    <div class="flex items-center justify-between">
+                        <h2 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                            <span class="w-2 h-6 bg-blue-500 rounded-full"></span> 网站流量变现
+                        </h2>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-full">Display Ads</span>
                     </div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-500">点击率 (CTR %)</label>
-                            <input type="number" id="as_ctr" value="1.5" step="0.1" oninput="calcAdSense()" class="w-full p-3 mt-1 border rounded-xl outline-none focus:ring-2 focus:ring-blue-400">
+
+                    <div class="space-y-6">
+                        <div class="group">
+                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">日均浏览量 (PV)</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                                </div>
+                                <input type="number" id="as_pv" value="5000" oninput="calcAdSense()" class="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all font-semibold text-slate-700 placeholder-slate-300">
+                            </div>
                         </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-500">点击单价 (CPC $)</label>
-                            <input type="number" id="as_cpc" value="0.25" step="0.01" oninput="calcAdSense()" class="w-full p-3 mt-1 border rounded-xl outline-none focus:ring-2 focus:ring-blue-400">
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">点击率 (CTR %)</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"/></svg>
+                                    </div>
+                                    <input type="number" id="as_ctr" value="1.2" step="0.1" oninput="calcAdSense()" class="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all font-semibold text-slate-700">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">点击单价 (CPC $)</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                    </div>
+                                    <input type="number" id="as_cpc" value="0.35" step="0.01" oninput="calcAdSense()" class="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white transition-all font-semibold text-slate-700">
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="mt-6 p-6 bg-blue-50 rounded-2xl border border-blue-100 text-center">
-                        <span class="text-gray-500 text-sm italic">月预计收入 (USD)</span>
-                        <div class="text-4xl font-black text-blue-600">$<span id="as_result">112.50</span></div>
+
+                    <div class="relative mt-8 p-8 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-3xl shadow-xl shadow-blue-200 text-center overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+                        
+                        <span class="relative z-10 text-blue-100 text-sm font-medium tracking-wide">月度预计总收入 (USD)</span>
+                        <div class="relative z-10 text-5xl md:text-6xl font-black text-white mt-2 tracking-tight drop-shadow-sm">
+                            $<span id="as_result">112.50</span>
+                        </div>
+                        <p class="relative z-10 text-blue-200 text-xs mt-2 opacity-80">*基于30天周期计算</p>
                     </div>
                 </div>
 
-                <div id="panel-youtube" class="hidden space-y-4">
-                    <h2 class="text-xl font-bold text-red-600">YouTube 创作者收益预估</h2>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-500">预估总播放量</label>
-                        <input type="number" id="yt_views" value="100000" oninput="calcYT()" class="w-full p-3 mt-1 border rounded-xl outline-none focus:ring-2 focus:ring-red-400">
+                <div id="panel-youtube" class="hidden fade-in space-y-8">
+                    <div class="flex items-center justify-between">
+                        <h2 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                            <span class="w-2 h-6 bg-red-600 rounded-full"></span> 创作者收益预估
+                        </h2>
+                        <span class="px-3 py-1 bg-red-100 text-red-700 text-xs font-bold rounded-full">RPM Model</span>
                     </div>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-500">内容领域</label>
-                            <select id="yt_niche" onchange="calcYT()" class="w-full p-3 mt-1 border rounded-xl outline-none">
-                                <option value="18">金融/商业 (High)</option>
-                                <option value="8">科技/数码 (Mid)</option>
-                                <option value="3.5">生活/Vlog (Low)</option>
-                                <option value="1.5">游戏/娱乐 (Base)</option>
-                            </select>
+
+                    <div class="space-y-6">
+                        <div class="group">
+                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">预估总播放量 (Views)</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                </div>
+                                <input type="number" id="yt_views" value="50000" oninput="calcYT()" class="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none focus:ring-2 focus:ring-red-500 focus:bg-white transition-all font-semibold text-slate-700">
+                            </div>
                         </div>
-                        <div>
-                            <label class="block text-sm font-medium text-gray-500">观众地区</label>
-                            <select id="yt_geo" onchange="calcYT()" class="w-full p-3 mt-1 border rounded-xl outline-none">
-                                <option value="1.2">欧美/高购买力</option>
-                                <option value="0.7">东亚/中等水平</option>
-                                <option value="0.2">其他地区</option>
-                            </select>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">内容垂直领域</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/></svg>
+                                    </div>
+                                    <select id="yt_niche" onchange="calcYT()" class="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none focus:ring-2 focus:ring-red-500 focus:bg-white transition-all appearance-none font-semibold text-slate-700">
+                                        <option value="18">金融/商业 (高 RPM)</option>
+                                        <option value="8">科技/数码 (中 RPM)</option>
+                                        <option value="3.5">生活/Vlog (低 RPM)</option>
+                                        <option value="1.5">游戏/娱乐 (基准 RPM)</option>
+                                    </select>
+                                    <div class="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-slate-500">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">主要观众地区</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                    </div>
+                                    <select id="yt_geo" onchange="calcYT()" class="w-full pl-12 pr-4 py-4 bg-slate-50 border border-slate-200 rounded-2xl outline-none focus:ring-2 focus:ring-red-500 focus:bg-white transition-all appearance-none font-semibold text-slate-700">
+                                        <option value="1.2">🇺🇸 欧美/高购买力</option>
+                                        <option value="0.7">🇨🇳 🇯🇵 东亚/中等水平</option>
+                                        <option value="0.2">🌏 其他地区</option>
+                                    </select>
+                                    <div class="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-slate-500">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="mt-6 p-6 bg-red-50 rounded-2xl border border-red-100 text-center">
-                        <span class="text-gray-500 text-sm italic">预估总收入 (RPM 模式)</span>
-                        <div class="text-4xl font-black text-red-600">$<span id="yt_result">2160.00</span></div>
+
+                    <div class="relative mt-8 p-8 bg-gradient-to-br from-red-500 to-rose-600 rounded-3xl shadow-xl shadow-red-200 text-center overflow-hidden">
+                        <div class="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+                        <span class="relative z-10 text-red-100 text-sm font-medium tracking-wide">视频预估总收入 (USD)</span>
+                        <div class="relative z-10 text-5xl md:text-6xl font-black text-white mt-2 tracking-tight drop-shadow-sm">
+                            $<span id="yt_result">2,160.00</span>
+                        </div>
+                        <p class="relative z-10 text-red-200 text-xs mt-2 opacity-80">*RPM 波动幅度较大，仅供参考</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="mt-8 bg-white border border-gray-200 rounded-2xl p-6 text-sm text-gray-500 shadow-sm">
-            <h3 class="font-bold text-gray-700 mb-3 flex items-center text-base">
-                <span class="mr-2">⚖️</span> 免责声明 & 数据说明
-            </h3>
-            <ul class="list-disc ml-5 space-y-2">
-                <li>本工具仅提供基于 2026 年行业平均数据的模拟预估，不构成任何实际收益承诺。</li>
-                <li><strong>YouTube 收益</strong>：实际 RPM 取决于视频时长（超过 8 分钟可开启更多中插）、观众活跃度及广告商实时出价。</li>
-                <li><strong>AdSense 收益</strong>：CPC 受广告竞价环境影响，Q4 季度通常比 Q1 季度高出 30% 以上。</li>
-                <li>本站为静态工具，不收集、不记录任何用户隐私数据。</li>
-            </ul>
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4 text-slate-500">
+            <div class="bg-white/60 p-5 rounded-2xl border border-white/50 text-sm shadow-sm">
+                <h3 class="font-bold text-slate-700 mb-2 flex items-center">
+                    <svg class="w-4 h-4 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    AdSense 逻辑
+                </h3>
+                <p class="text-xs leading-relaxed">基于 CPC (点击单价) 模型。Q4 季度通常单价最高。公式：PV × CTR × CPC × 30天。</p>
+            </div>
+            <div class="bg-white/60 p-5 rounded-2xl border border-white/50 text-sm shadow-sm">
+                <h3 class="font-bold text-slate-700 mb-2 flex items-center">
+                    <svg class="w-4 h-4 mr-2 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    YouTube 逻辑
+                </h3>
+                <p class="text-xs leading-relaxed">基于 RPM (千次展示收入) 模型。金融类视频通常比娱乐类高出 10 倍收益。</p>
+            </div>
         </div>
-        
-        <p class="text-center text-gray-400 text-xs mt-8">© 2026 自媒体收益助手 | 极简被动收益工具</p>
+
+        <p class="text-center text-slate-400 text-xs mt-10 font-medium">© 2026 自媒体收益助手 | Data Privacy Safe</p>
     </div>
 
     <script>
+        // 初始化计算一次
+        window.onload = function() {
+            calcAdSense();
+            calcYT();
+        }
+
         function switchTab(type) {
             const asPanel = document.getElementById('panel-adsense');
             const ytPanel = document.getElementById('panel-youtube');
             const asTab = document.getElementById('tab-adsense');
             const ytTab = document.getElementById('tab-youtube');
+            const body = document.getElementById('main-body');
 
             if (type === 'adsense') {
                 asPanel.classList.remove('hidden');
                 ytPanel.classList.add('hidden');
-                asTab.className = "flex-1 py-4 font-bold text-blue-600 bg-white transition-all";
-                ytTab.className = "flex-1 py-4 font-bold text-gray-600 hover:bg-gray-50 transition-all";
+                
+                // 激活样式 - AdSense
+                asTab.className = "flex-1 py-3 px-4 rounded-xl font-bold text-sm md:text-base transition-all duration-300 shadow-sm bg-white text-blue-600 ring-1 ring-black/5 flex items-center justify-center gap-2 transform scale-100";
+                ytTab.className = "flex-1 py-3 px-4 rounded-xl font-bold text-sm md:text-base transition-all duration-300 text-slate-500 hover:text-slate-700 flex items-center justify-center gap-2 transform scale-95";
+                
+                // 页面背景微调
+                body.classList.remove('bg-red-50');
+                body.classList.add('bg-slate-50');
+
             } else {
                 asPanel.classList.add('hidden');
                 ytPanel.classList.remove('hidden');
-                asTab.className = "flex-1 py-4 font-bold text-gray-600 hover:bg-gray-50 transition-all";
-                ytTab.className = "flex-1 py-4 font-bold text-red-600 bg-white transition-all";
+
+                // 激活样式 - YouTube
+                asTab.className = "flex-1 py-3 px-4 rounded-xl font-bold text-sm md:text-base transition-all duration-300 text-slate-500 hover:text-slate-700 flex items-center justify-center gap-2 transform scale-95";
+                ytTab.className = "flex-1 py-3 px-4 rounded-xl font-bold text-sm md:text-base transition-all duration-300 shadow-sm bg-white text-red-600 ring-1 ring-black/5 flex items-center justify-center gap-2 transform scale-100";
+
+                 // 页面背景微调
+                 body.classList.remove('bg-slate-50');
+                 body.classList.add('bg-red-50');
             }
+        }
+
+        function formatCurrency(num) {
+            return num.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
         }
 
         function calcAdSense() {
@@ -111,7 +239,10 @@
             const ctr = (parseFloat(document.getElementById('as_ctr').value) || 0) / 100;
             const cpc = parseFloat(document.getElementById('as_cpc').value) || 0;
             const result = pv * ctr * cpc * 30;
-            document.getElementById('as_result').innerText = result.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            
+            // 简单的数字滚动效果模拟
+            const el = document.getElementById('as_result');
+            el.innerText = formatCurrency(result);
         }
 
         function calcYT() {
@@ -119,7 +250,9 @@
             const niche = parseFloat(document.getElementById('yt_niche').value);
             const geo = parseFloat(document.getElementById('yt_geo').value);
             const result = (views / 1000) * niche * geo;
-            document.getElementById('yt_result').innerText = result.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            
+            const el = document.getElementById('yt_result');
+            el.innerText = formatCurrency(result);
         }
     </script>
 </body>
