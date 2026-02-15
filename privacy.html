@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - 隐私政策 | 2026 Earnings Tool</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .fade-enter { opacity: 0; transform: translateY(10px); }
+        .fade-enter-active { opacity: 1; transform: translateY(0); transition: opacity 0.3s, transform 0.3s; }
+        .language-btn.active { background-color: #2563eb; color: white; border-color: #2563eb; }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen py-12 px-4 md:px-8 text-slate-600">
+
+    <nav class="max-w-4xl mx-auto mb-8 flex justify-between items-center">
+        <a href="index.html" class="flex items-center text-slate-500 hover:text-blue-600 transition-colors font-medium">
+            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+            <span id="nav-back">返回计算器 / Back to Tool</span>
+        </a>
+        
+        <div class="flex bg-white rounded-lg p-1 shadow-sm border border-slate-200">
+            <button onclick="setLang('zh')" id="btn-zh" class="language-btn px-4 py-1.5 rounded-md text-sm font-bold transition-all text-slate-500 hover:bg-slate-50">中文</button>
+            <button onclick="setLang('en')" id="btn-en" class="language-btn px-4 py-1.5 rounded-md text-sm font-bold transition-all text-slate-500 hover:bg-slate-50">English</button>
+        </div>
+    </nav>
+
+    <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] overflow-hidden border border-slate-100">
+        
+        <div class="h-2 bg-gradient-to-r from-blue-500 to-indigo-600"></div>
+
+        <div class="p-8 md:p-12">
+            
+            <div class="mb-10 text-center md:text-left border-b border-slate-100 pb-8">
+                <div class="inline-flex items-center justify-center p-3 bg-blue-50 text-blue-600 rounded-xl mb-4">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                </div>
+                <h1 class="text-3xl md:text-4xl font-black text-slate-900 mb-2">
+                    <span class="lang-zh hidden">隐私政策与服务条款</span>
+                    <span class="lang-en hidden">Privacy Policy & Terms</span>
+                </h1>
+                <p class="text-slate-400 text-sm">
+                    <span class="lang-zh hidden">最后更新：2026年2月15日</span>
+                    <span class="lang-en hidden">Last Updated: February 15, 2026</span>
+                </p>
+            </div>
+
+            <div id="content-zh" class="lang-zh space-y-8 hidden">
+                <section>
+                    <h2 class="text-xl font-bold text-slate-800 mb-3">1. 关于数据收集</h2>
+                    <p class="leading-relaxed text-slate-600">
+                        本工具（自媒体收益预估工具）是一个<strong>纯静态的客户端应用</strong>。所有的计算过程（包括 AdSense 预估和 YouTube 收益计算）完全在您的浏览器本地通过 JavaScript 运行。
+                    </p>
+                    <ul class="list-disc ml-5 mt-3 space-y-1 text-slate-600 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <li>我们<strong>不会</strong>将您输入的 PV、CTR 或预估播放量上传至任何服务器。</li>
+                        <li>我们<strong>不会</strong>记录您的 IP 地址或设备指纹。</li>
+                        <li>您的使用数据在关闭页面后会自动销毁。</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-bold text-slate-800 mb-3">2. Cookie 与本地存储</h2>
+                    <p class="leading-relaxed text-slate-600">
+                        为了提升用户体验，我们可能会使用浏览器的 <code class="bg-slate-100 px-2 py-0.5 rounded text-sm font-mono text-pink-500">localStorage</code> 技术来保存您的非敏感偏好设置（例如：您上次选择的是 "AdSense" 还是 "YouTube" 标签页）。这不包含任何个人身份信息。
+                    </p>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-bold text-slate-800 mb-3">3. 免责声明</h2>
+                    <p class="leading-relaxed text-slate-600">
+                        本网站提供的收益数据基于 2026 年行业平均水平的<strong>估算值</strong>。实际收益受广告商出价、季节性波动、观众画像等多种复杂因素影响。本工具生成的结果仅供参考，不构成任何财务建议或收益承诺。
+                    </p>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-bold text-slate-800 mb-3">4. 第三方服务</h2>
+                    <p class="leading-relaxed text-slate-600">
+                        为了优化页面加载速度和样式，我们使用了以下 CDN 服务：
+                    </p>
+                    <div class="flex gap-3 mt-3">
+                        <span class="px-3 py-1 bg-gray-100 rounded-full text-xs font-bold text-gray-600">Tailwind CSS</span>
+                        <span class="px-3 py-1 bg-gray-100 rounded-full text-xs font-bold text-gray-600">Google Fonts</span>
+                    </div>
+                </section>
+
+                 <section class="pt-6 border-t border-slate-100">
+                    <h2 class="text-lg font-bold text-slate-800 mb-2">联系我们</h2>
+                    <p class="text-sm text-slate-500">如果您对本隐私政策有任何疑问，请发送邮件至：<a href="#" class="text-blue-600 hover:underline">privacy@example.com</a></p>
+                </section>
+            </div>
+
+            <div id="content-en" class="lang-en space-y-8 hidden">
+                <section>
+                    <h2 class="text-xl font-bold text-slate-800 mb-3">1. Data Collection</h2>
+                    <p class="leading-relaxed text-slate-600">
+                        The "Earnings Estimator Tool" is a <strong>static, client-side application</strong>. All calculations (including AdSense estimates and YouTube revenue projections) run entirely locally in your web browser via JavaScript.
+                    </p>
+                    <ul class="list-disc ml-5 mt-3 space-y-1 text-slate-600 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                        <li>We <strong>DO NOT</strong> upload your input data (PV, CTR, Views) to any server.</li>
+                        <li>We <strong>DO NOT</strong> log your IP address or device fingerprint.</li>
+                        <li>Your data is cleared instantly when you close or refresh the page.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-bold text-slate-800 mb-3">2. Cookies & Local Storage</h2>
+                    <p class="leading-relaxed text-slate-600">
+                        To improve user experience, we may use the browser's <code class="bg-slate-100 px-2 py-0.5 rounded text-sm font-mono text-pink-500">localStorage</code> to save non-sensitive preferences (e.g., whether you were last viewing the "AdSense" or "YouTube" tab). This contains no personally identifiable information.
+                    </p>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-bold text-slate-800 mb-3">3. Disclaimer</h2>
+                    <p class="leading-relaxed text-slate-600">
+                        The revenue figures provided by this site are <strong>estimates</strong> based on 2026 industry averages. Actual earnings are subject to advertiser bidding, seasonality, audience demographics, and other factors. The results generated by this tool are for reference only and do not constitute financial advice or income guarantees.
+                    </p>
+                </section>
+
+                <section>
+                    <h2 class="text-xl font-bold text-slate-800 mb-3">4. Third-Party Services</h2>
+                    <p class="leading-relaxed text-slate-600">
+                        To optimize page loading speed and styling, we utilize the following CDN services:
+                    </p>
+                    <div class="flex gap-3 mt-3">
+                        <span class="px-3 py-1 bg-gray-100 rounded-full text-xs font-bold text-gray-600">Tailwind CSS</span>
+                        <span class="px-3 py-1 bg-gray-100 rounded-full text-xs font-bold text-gray-600">Google Fonts</span>
+                    </div>
+                </section>
+
+                <section class="pt-6 border-t border-slate-100">
+                    <h2 class="text-lg font-bold text-slate-800 mb-2">Contact Us</h2>
+                    <p class="text-sm text-slate-500">If you have any questions about this Privacy Policy, please contact us at: <a href="#" class="text-blue-600 hover:underline">ye8078@gmail.com</a></p>
+                </section>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="text-center mt-12 mb-6">
+        <p class="text-slate-400 text-xs font-medium">© 2026 Earnings Estimator Tool. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function setLang(lang) {
+            // 隐藏所有内容
+            document.querySelectorAll('.lang-zh, .lang-en').forEach(el => {
+                el.classList.add('hidden');
+                el.classList.remove('fade-enter-active');
+            });
+            
+            // 移除按钮激活状态
+            document.getElementById('btn-zh').classList.remove('active');
+            document.getElementById('btn-en').classList.remove('active');
+
+            // 显示选中语言的内容
+            const activeElements = document.querySelectorAll(`.lang-${lang}`);
+            activeElements.forEach(el => {
+                el.classList.remove('hidden');
+                // 简单的动画帧延迟，触发过渡
+                setTimeout(() => el.classList.add('fade-enter-active'), 10);
+            });
+
+            // 激活按钮状态
+            document.getElementById(`btn-${lang}`).classList.add('active');
+        }
+
+        // 初始化语言 (默认为中文)
+        window.onload = function() {
+            setLang('zh');
+        }
+    </script>
+</body>
+</html>
