@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全能自媒体收益预估工具 - 2026专业版</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+<body class="bg-gray-100 min-h-screen py-10 px-4">
+
+    <div class="max-w-2xl mx-auto">
+        <div class="bg-white rounded-3xl shadow-xl overflow-hidden">
+            <div class="flex bg-gray-200">
+                <button onclick="switchTab('adsense')" id="tab-adsense" class="flex-1 py-4 font-bold text-blue-600 bg-white transition-all">网站 AdSense</button>
+                <button onclick="switchTab('youtube')" id="tab-youtube" class="flex-1 py-4 font-bold text-gray-600 hover:bg-gray-50 transition-all">YouTube 收益</button>
+            </div>
+
+            <div class="p-8">
+                <div id="panel-adsense" class="space-y-4">
+                    <h2 class="text-xl font-bold text-gray-800">网站广告收益预估</h2>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-500">日均页面浏览量 (PV)</label>
+                        <input type="number" id="as_pv" value="1000" oninput="calcAdSense()" class="w-full p-3 mt-1 border rounded-xl outline-none focus:ring-2 focus:ring-blue-400">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-500">点击率 (CTR %)</label>
+                            <input type="number" id="as_ctr" value="1.5" step="0.1" oninput="calcAdSense()" class="w-full p-3 mt-1 border rounded-xl outline-none focus:ring-2 focus:ring-blue-400">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-500">点击单价 (CPC $)</label>
+                            <input type="number" id="as_cpc" value="0.25" step="0.01" oninput="calcAdSense()" class="w-full p-3 mt-1 border rounded-xl outline-none focus:ring-2 focus:ring-blue-400">
+                        </div>
+                    </div>
+                    <div class="mt-6 p-6 bg-blue-50 rounded-2xl border border-blue-100 text-center">
+                        <span class="text-gray-500 text-sm italic">月预计收入 (USD)</span>
+                        <div class="text-4xl font-black text-blue-600">$<span id="as_result">112.50</span></div>
+                    </div>
+                </div>
+
+                <div id="panel-youtube" class="hidden space-y-4">
+                    <h2 class="text-xl font-bold text-red-600">YouTube 创作者收益预估</h2>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-500">预估总播放量</label>
+                        <input type="number" id="yt_views" value="100000" oninput="calcYT()" class="w-full p-3 mt-1 border rounded-xl outline-none focus:ring-2 focus:ring-red-400">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-500">内容领域</label>
+                            <select id="yt_niche" onchange="calcYT()" class="w-full p-3 mt-1 border rounded-xl outline-none">
+                                <option value="18">金融/商业 (High)</option>
+                                <option value="8">科技/数码 (Mid)</option>
+                                <option value="3.5">生活/Vlog (Low)</option>
+                                <option value="1.5">游戏/娱乐 (Base)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-500">观众地区</label>
+                            <select id="yt_geo" onchange="calcYT()" class="w-full p-3 mt-1 border rounded-xl outline-none">
+                                <option value="1.2">欧美/高购买力</option>
+                                <option value="0.7">东亚/中等水平</option>
+                                <option value="0.2">其他地区</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mt-6 p-6 bg-red-50 rounded-2xl border border-red-100 text-center">
+                        <span class="text-gray-500 text-sm italic">预估总收入 (RPM 模式)</span>
+                        <div class="text-4xl font-black text-red-600">$<span id="yt_result">2160.00</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8 bg-white border border-gray-200 rounded-2xl p-6 text-sm text-gray-500 shadow-sm">
+            <h3 class="font-bold text-gray-700 mb-3 flex items-center text-base">
+                <span class="mr-2">⚖️</span> 免责声明 & 数据说明
+            </h3>
+            <ul class="list-disc ml-5 space-y-2">
+                <li>本工具仅提供基于 2026 年行业平均数据的模拟预估，不构成任何实际收益承诺。</li>
+                <li><strong>YouTube 收益</strong>：实际 RPM 取决于视频时长（超过 8 分钟可开启更多中插）、观众活跃度及广告商实时出价。</li>
+                <li><strong>AdSense 收益</strong>：CPC 受广告竞价环境影响，Q4 季度通常比 Q1 季度高出 30% 以上。</li>
+                <li>本站为静态工具，不收集、不记录任何用户隐私数据。</li>
+            </ul>
+        </div>
+        
+        <p class="text-center text-gray-400 text-xs mt-8">© 2026 自媒体收益助手 | 极简被动收益工具</p>
+    </div>
+
+    <script>
+        function switchTab(type) {
+            const asPanel = document.getElementById('panel-adsense');
+            const ytPanel = document.getElementById('panel-youtube');
+            const asTab = document.getElementById('tab-adsense');
+            const ytTab = document.getElementById('tab-youtube');
+
+            if (type === 'adsense') {
+                asPanel.classList.remove('hidden');
+                ytPanel.classList.add('hidden');
+                asTab.className = "flex-1 py-4 font-bold text-blue-600 bg-white transition-all";
+                ytTab.className = "flex-1 py-4 font-bold text-gray-600 hover:bg-gray-50 transition-all";
+            } else {
+                asPanel.classList.add('hidden');
+                ytPanel.classList.remove('hidden');
+                asTab.className = "flex-1 py-4 font-bold text-gray-600 hover:bg-gray-50 transition-all";
+                ytTab.className = "flex-1 py-4 font-bold text-red-600 bg-white transition-all";
+            }
+        }
+
+        function calcAdSense() {
+            const pv = parseFloat(document.getElementById('as_pv').value) || 0;
+            const ctr = (parseFloat(document.getElementById('as_ctr').value) || 0) / 100;
+            const cpc = parseFloat(document.getElementById('as_cpc').value) || 0;
+            const result = pv * ctr * cpc * 30;
+            document.getElementById('as_result').innerText = result.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        }
+
+        function calcYT() {
+            const views = parseFloat(document.getElementById('yt_views').value) || 0;
+            const niche = parseFloat(document.getElementById('yt_niche').value);
+            const geo = parseFloat(document.getElementById('yt_geo').value);
+            const result = (views / 1000) * niche * geo;
+            document.getElementById('yt_result').innerText = result.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        }
+    </script>
+</body>
+</html>
