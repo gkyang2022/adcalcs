@@ -118,6 +118,27 @@ function calcRoi() {
   document.getElementById('roi-results').style.display = 'block';
 }
 
+/* ---------- AdSense 收入计算器 ---------- */
+function calcAdsense() {
+  var impressions = parseFloat(document.getElementById('as-impressions').value) || 0;
+  var rpm = parseFloat(document.getElementById('as-rpm').value) || 0;
+  var ctr = parseFloat(document.getElementById('as-ctr').value) || 2.5;
+
+  var ctrMultiplier = 1 + (ctr - 2.5) * 0.05;
+  var effectiveRpm = rpm * ctrMultiplier;
+  var daily = (impressions / 1000) * effectiveRpm;
+  var monthly = daily * 30;
+  var yearly = daily * 365;
+
+  document.getElementById('as-result-daily').textContent = '$' + daily.toFixed(2);
+  document.getElementById('as-result-monthly').textContent = '$' + monthly.toFixed(2);
+  document.getElementById('as-result-yearly').textContent = '$' + yearly.toFixed(2);
+  document.getElementById('as-result-rpm').textContent = '$' + effectiveRpm.toFixed(2);
+  document.getElementById('as-result-impressions').textContent = impressions.toLocaleString();
+
+  document.getElementById('as-results').style.display = 'block';
+}
+
 /* ---------- Range Slider Sync ---------- */
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('input[type="range"]').forEach(function (slider) {
@@ -130,6 +151,61 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+/* ---------- Hero Tab Switching ---------- */
+function switchHeroTab(tab) {
+  document.querySelectorAll('.hero-calc-tab').forEach(function(t) {
+    t.classList.remove('active');
+  });
+  document.querySelectorAll('.hero-calc-panel').forEach(function(p) {
+    p.classList.remove('active');
+  });
+  document.querySelector('.hero-calc-tab[data-tab="' + tab + '"]').classList.add('active');
+  document.getElementById('hero-panel-' + tab).classList.add('active');
+}
+
+/* ---------- Hero YouTube Calculator ---------- */
+function calcHeroYoutube() {
+  var views = parseFloat(document.getElementById('hero-yt-views').value) || 0;
+  var cpm = parseFloat(document.getElementById('hero-yt-cpm').value) || 0;
+  var rpm = parseFloat(document.getElementById('hero-yt-rpm').value) || 0;
+  var length = parseFloat(document.getElementById('hero-yt-length').value) || 8;
+
+  var lengthMultiplier = 1;
+  if (length < 2) lengthMultiplier = 0.3;
+  else if (length < 5) lengthMultiplier = 0.6;
+  else if (length < 10) lengthMultiplier = 0.85;
+  else if (length < 15) lengthMultiplier = 1.0;
+  else lengthMultiplier = 1.1;
+
+  var adjRpm = rpm * lengthMultiplier;
+  var daily = (views / 1000) * adjRpm;
+  var monthly = daily * 30;
+  var yearly = daily * 365;
+
+  document.getElementById('hero-yt-daily').textContent = '$' + daily.toFixed(2);
+  document.getElementById('hero-yt-monthly').textContent = '$' + monthly.toFixed(2);
+  document.getElementById('hero-yt-rpm-result').textContent = '$' + adjRpm.toFixed(2);
+  document.getElementById('hero-yt-yearly').textContent = '$' + yearly.toFixed(2);
+  document.getElementById('hero-yt-results').style.display = 'grid';
+}
+
+/* ---------- Hero AdSense Calculator ---------- */
+function calcHeroAdsense() {
+  var impressions = parseFloat(document.getElementById('hero-as-impressions').value) || 0;
+  var rpm = parseFloat(document.getElementById('hero-as-rpm').value) || 0;
+  var ctr = parseFloat(document.getElementById('hero-as-ctr').value) || 0;
+
+  var daily = (impressions / 1000) * rpm;
+  var monthly = daily * 30;
+  var yearly = daily * 365;
+
+  document.getElementById('hero-as-daily').textContent = '$' + daily.toFixed(2);
+  document.getElementById('hero-as-monthly').textContent = '$' + monthly.toFixed(2);
+  document.getElementById('hero-as-yearly').textContent = '$' + yearly.toFixed(2);
+  document.getElementById('hero-as-rpm-result').textContent = '$' + rpm.toFixed(2);
+  document.getElementById('hero-as-results').style.display = 'grid';
+}
 
 /* ---------- Form Submit Prevention ---------- */
 document.addEventListener('DOMContentLoaded', function () {

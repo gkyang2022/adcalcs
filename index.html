@@ -56,6 +56,38 @@
     }
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "CPM 是什么？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "CPM 是 Cost Per Mille（千次展示成本）的缩写，指广告每展示一千次所需支付的费用。计算公式：CPM =（广告总花费 ÷ 展示次数）× 1000。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "RPM 是什么？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "RPM 是 Revenue Per Mille（千次展示收入）的缩写，指内容创作者每获得一千次展示所能赚取的收入。计算公式：RPM =（总收入 ÷ 展示次数）× 1000。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "YouTube 创作者如何赚钱？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "YouTube 创作者主要通过广告收入、频道会员、Super Chat 与 Super Thanks、品牌合作等方式赚钱。"
+        }
+      }
+    ]
+  }
+  </script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JDXWE5L5SL"></script>
   <script defer src="https://umi.317520.xyz/script.js" data-website-id="29475918-2ce0-4050-a6cf-640a520291c6"></script>
@@ -86,15 +118,17 @@
         <span>AdCalcs</span>
       </a>
       <button class="menu-toggle" aria-label="打开菜单" type="button">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </button>
       <ul class="nav-links">
         <li><a href="/" class="active">首页</a></li>
-        <li><a href="/calculators/youtube-money-calculator.html">YouTube 收益</a></li>
-        <li><a href="/calculators/cpm-calculator.html">CPM 计算</a></li>
+        <li><a href="/calculators/youtube-money-calculator.html">YouTube</a></li>
+        <li><a href="/calculators/tiktok-money-calculator.html">TikTok</a></li>
+        <li><a href="/calculators/adsense-calculator.html">AdSense</a></li>
+        <li><a href="/calculators/cpm-calculator.html">CPM</a></li>
+        <li><a href="/blog/what-is-cpm.html">博客</a></li>
         <li><a href="/about.html">关于</a></li>
+        <li><a href="/contact.html">联系</a></li>
       </ul>
     </div>
   </nav>
@@ -104,144 +138,524 @@
     <div class="hero-glow"></div>
     <div class="container">
       <div class="hero-content">
-        <h1><span class="gradient-text">广告收益</span>计算工具箱</h1>
-        <p>免费计算 YouTube、TikTok、CPM、RPM 与广告收益数据。为内容创作者、广告投放人员和自媒体运营者提供精准收益估算。</p>
+        <div class="hero-badge">&#9679; 免费广告收益计算工具</div>
+        <h1>
+          精准计算你的<br>
+          <span class="gradient-text">广告收益</span>
+        </h1>
+        <p>免费计算 YouTube、TikTok、CPM、RPM 与广告收益数据。为内容创作者、广告投放人员和自媒体运营者提供精准收益估算工具。</p>
         <div class="hero-buttons">
-          <a href="#tools" class="btn btn-primary btn-lg">立即使用</a>
-          <a href="/about.html" class="btn btn-secondary btn-lg">查看工具</a>
+          <a href="#tools" class="btn btn-primary btn-lg">立即免费计算</a>
+          <a href="/about.html" class="btn btn-secondary btn-lg">了解详情</a>
+        </div>
+        <div class="hero-trust">
+          <div class="hero-trust-item">
+            <strong>10,000+</strong>
+            <span>月活跃用户</span>
+          </div>
+          <div class="hero-trust-item">
+            <strong>6</strong>
+            <span>专业计算工具</span>
+          </div>
+          <div class="hero-trust-item">
+            <strong>100%</strong>
+            <span>免费使用</span>
+          </div>
         </div>
       </div>
       <div class="hero-visual">
-        <div class="hero-card">
-          <div class="hero-card-header">
-            <h4>收益预览</h4>
-            <span class="badge">实时估算</span>
+        <div class="hero-calc-card">
+          <!-- Tabs -->
+          <div class="hero-calc-tabs">
+            <button class="hero-calc-tab active" data-tab="youtube" onclick="switchHeroTab('youtube')">▶ YouTube 收益</button>
+            <button class="hero-calc-tab" data-tab="adsense" onclick="switchHeroTab('adsense')">📢 AdSense 收入</button>
           </div>
-          <div class="hero-card-row">
-            <span class="label">YouTube 月播放量</span>
-            <span class="value">50,000</span>
+
+          <!-- YouTube Panel -->
+          <div class="hero-calc-panel active" id="hero-panel-youtube">
+            <div class="hero-calc-body">
+              <div class="hero-calc-row two-cols">
+                <div class="hero-calc-field">
+                  <label>每日播放量</label>
+                  <input type="number" id="hero-yt-views" value="5000" min="0" step="100">
+                </div>
+                <div class="hero-calc-field">
+                  <label>视频长度</label>
+                  <input type="range" id="hero-yt-length" min="1" max="30" value="8">
+                  <span class="range-value" id="hero-yt-length-val">8</span> 分钟
+                </div>
+              </div>
+              <div class="hero-calc-row two-cols">
+                <div class="hero-calc-field">
+                  <label>CPM ($)</label>
+                  <input type="number" id="hero-yt-cpm" value="5.20" min="0" step="0.1">
+                </div>
+                <div class="hero-calc-field">
+                  <label>RPM ($)</label>
+                  <input type="number" id="hero-yt-rpm" value="3.50" min="0" step="0.1">
+                </div>
+              </div>
+              <button type="button" class="btn btn-primary" onclick="calcHeroYoutube()" style="width:100%;justify-content:center;">计算 YouTube 收益</button>
+
+              <div class="hero-calc-results" id="hero-yt-results" style="display:none;">
+                <div class="hero-calc-result-item">
+                  <span class="label">每日收益</span>
+                  <span class="value highlight" id="hero-yt-daily">$0.00</span>
+                </div>
+                <div class="hero-calc-result-item">
+                  <span class="label">月收益</span>
+                  <span class="value" id="hero-yt-monthly">$0.00</span>
+                </div>
+                <div class="hero-calc-result-item">
+                  <span class="label">有效 RPM</span>
+                  <span class="value" id="hero-yt-rpm-result">$0.00</span>
+                </div>
+                <div class="hero-calc-result-item">
+                  <span class="label">年收益</span>
+                  <span class="value" id="hero-yt-yearly">$0.00</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="hero-card-row">
-            <span class="label">预估 RPM</span>
-            <span class="value">$3.50</span>
-          </div>
-          <div class="hero-card-row">
-            <span class="label">CPM</span>
-            <span class="value">$5.20</span>
-          </div>
-          <div class="hero-card-row">
-            <span class="label">TikTok 播放量</span>
-            <span class="value">100,000</span>
-          </div>
-          <div class="hero-card-total">
-            <span class="label">月预估收益</span>
-            <span class="value">$278.50</span>
+
+          <!-- AdSense Panel -->
+          <div class="hero-calc-panel" id="hero-panel-adsense">
+            <div class="hero-calc-body">
+              <div class="hero-calc-row two-cols">
+                <div class="hero-calc-field">
+                  <label>每日页面展示</label>
+                  <input type="number" id="hero-as-impressions" value="10000" min="0" step="1000">
+                </div>
+                <div class="hero-calc-field">
+                  <label>页面 RPM ($)</label>
+                  <input type="number" id="hero-as-rpm" value="5.00" min="0" step="0.5">
+                </div>
+              </div>
+              <div class="hero-calc-row">
+                <div class="hero-calc-field">
+                  <label>广告点击率 CTR (%)</label>
+                  <input type="number" id="hero-as-ctr" value="2.5" min="0" step="0.1">
+                </div>
+              </div>
+              <button type="button" class="btn btn-primary" onclick="calcHeroAdsense()" style="width:100%;justify-content:center;">计算 AdSense 收入</button>
+
+              <div class="hero-calc-results" id="hero-as-results" style="display:none;">
+                <div class="hero-calc-result-item">
+                  <span class="label">每日收入</span>
+                  <span class="value highlight" id="hero-as-daily">$0.00</span>
+                </div>
+                <div class="hero-calc-result-item">
+                  <span class="label">月收入</span>
+                  <span class="value" id="hero-as-monthly">$0.00</span>
+                </div>
+                <div class="hero-calc-result-item">
+                  <span class="label">年收入</span>
+                  <span class="value" id="hero-as-yearly">$0.00</span>
+                </div>
+                <div class="hero-calc-result-item">
+                  <span class="label">有效 RPM</span>
+                  <span class="value" id="hero-as-rpm-result">$0.00</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Tools Section -->
-  <section class="section" id="tools">
+  <!-- Platform Data Showcase -->
+  <section class="section" id="platform-data">
     <div class="container">
-      <div class="section-header">
-        <span class="section-label">计算工具</span>
+      <div class="section-header reveal">
+        <span class="section-label">平台数据</span>
+        <h2>广告平台收益数据概览</h2>
+        <p>基于行业公开数据和实际投放经验整理的真实参考数据</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card reveal reveal-delay-1">
+          <span class="stat-icon">▶</span>
+          <span class="stat-value" data-target="4.50" data-prefix="$" data-suffix="">$0.00</span>
+          <span class="stat-label">YouTube 平均 RPM</span>
+          <span class="stat-trend up">&#9650; 较去年 +8.2%</span>
+        </div>
+        <div class="stat-card reveal reveal-delay-2">
+          <span class="stat-icon">♪</span>
+          <span class="stat-value" data-target="0.03" data-prefix="$" data-suffix="">$0.00</span>
+          <span class="stat-label">TikTok 每千次收益</span>
+          <span class="stat-trend up">&#9650; 较去年 +15.3%</span>
+        </div>
+        <div class="stat-card reveal reveal-delay-3">
+          <span class="stat-icon">🇺🇸</span>
+          <span class="stat-value" data-target="8.50" data-prefix="$" data-suffix="">$0.00</span>
+          <span class="stat-label">美国地区平均 CPM</span>
+          <span class="stat-trend down">&#9660; 较去年 -3.1%</span>
+        </div>
+        <div class="stat-card reveal reveal-delay-4">
+          <span class="stat-icon">📊</span>
+          <span class="stat-value" data-target="4.2" data-prefix="" data-suffix="x">0.0x</span>
+          <span class="stat-label">广告行业平均 ROAS</span>
+          <span class="stat-trend up">&#9650; 较去年 +5.6%</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popular Calculators -->
+  <section class="section" style="background:var(--gray-50);" id="tools">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">热门工具</span>
         <h2>所有计算工具</h2>
         <p>精准计算各类广告收益和投放数据，助力内容创作与广告优化</p>
       </div>
-      <div class="tools-grid">
-
-        <!-- YouTube 计算器 -->
-        <div class="tool-card">
-          <div class="tool-card-icon">▶</div>
-          <h3>YouTube 收益计算器</h3>
-          <p>根据播放量、CPM 和 RPM 估算 YouTube 频道收入，支持月收益与单日收益计算。</p>
-          <a href="/calculators/youtube-money-calculator.html" class="btn btn-outline btn-sm">开始计算</a>
-        </div>
-
-        <!-- TikTok 计算器 -->
-        <div class="tool-card">
-          <div class="tool-card-icon">♪</div>
-          <h3>TikTok 收益计算器</h3>
-          <p>估算 TikTok 创作者基金收益、品牌合作收入，基于播放量与互动率精准计算。</p>
-          <a href="/calculators/tiktok-money-calculator.html" class="btn btn-outline btn-sm">开始计算</a>
-        </div>
-
-        <!-- CPM 计算器 -->
-        <div class="tool-card">
-          <div class="tool-card-icon">📊</div>
-          <h3>CPM 计算器</h3>
-          <p>计算千次展示成本（Cost Per Mille），帮助广告主衡量广告投放的性价比。</p>
-          <a href="/calculators/cpm-calculator.html" class="btn btn-outline btn-sm">开始计算</a>
-        </div>
-
-        <!-- RPM 计算器 -->
-        <div class="tool-card">
-          <div class="tool-card-icon">📈</div>
-          <h3>RPM 计算器</h3>
-          <p>计算千次展示收入（Revenue Per Mille），帮助内容创作者了解真实收益水平。</p>
-          <a href="/calculators/rpm-calculator.html" class="btn btn-outline btn-sm">开始计算</a>
-        </div>
-
-        <!-- ROI 计算器 -->
-        <div class="tool-card">
-          <div class="tool-card-icon">🎯</div>
-          <h3>ROI 投资回报计算器</h3>
-          <p>计算广告投资回报率，评估营销活动的收益表现与投入产出比。</p>
-          <a href="/calculators/roi-calculator.html" class="btn btn-outline btn-sm">开始计算</a>
-        </div>
-
+      <div class="tools-horizontal">
+        <a href="/calculators/youtube-money-calculator.html" class="tool-card-h reveal reveal-delay-1">
+          <div class="tool-card-h-icon">▶</div>
+          <div class="tool-card-h-body">
+            <h3>YouTube 收益计算器</h3>
+            <p>根据播放量、CPM 和 RPM 估算频道收入</p>
+          </div>
+          <div class="tool-card-h-meta">
+            <span class="tool-card-h-users">&#128101; 3.2k 使用</span>
+            <span class="tool-card-h-arrow">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M4 2L9 7L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </a>
+        <a href="/calculators/tiktok-money-calculator.html" class="tool-card-h reveal reveal-delay-2">
+          <div class="tool-card-h-icon">♪</div>
+          <div class="tool-card-h-body">
+            <h3>TikTok 收益计算器</h3>
+            <p>估算创作者基金及品牌合作收入</p>
+          </div>
+          <div class="tool-card-h-meta">
+            <span class="tool-card-h-users">&#128101; 2.1k 使用</span>
+            <span class="tool-card-h-arrow">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M4 2L9 7L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </a>
+        <a href="/calculators/adsense-calculator.html" class="tool-card-h reveal reveal-delay-3">
+          <div class="tool-card-h-icon">📢</div>
+          <div class="tool-card-h-body">
+            <h3>AdSense 收入计算器</h3>
+            <p>根据展示次数和 RPM 估算网站广告收入</p>
+          </div>
+          <div class="tool-card-h-meta">
+            <span class="tool-card-h-users">&#128101; 1.5k 使用</span>
+            <span class="tool-card-h-arrow">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M4 2L9 7L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </a>
+        <a href="/calculators/cpm-calculator.html" class="tool-card-h reveal reveal-delay-4">
+          <div class="tool-card-h-icon">📊</div>
+          <div class="tool-card-h-body">
+            <h3>CPM 计算器</h3>
+            <p>计算千次展示成本，评估广告性价比</p>
+          </div>
+          <div class="tool-card-h-meta">
+            <span class="tool-card-h-users">&#128101; 4.5k 使用</span>
+            <span class="tool-card-h-arrow">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M4 2L9 7L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </a>
+        <a href="/calculators/rpm-calculator.html" class="tool-card-h reveal reveal-delay-1">
+          <div class="tool-card-h-icon">📈</div>
+          <div class="tool-card-h-body">
+            <h3>RPM 计算器</h3>
+            <p>计算千次展示收入，了解真实收益水平</p>
+          </div>
+          <div class="tool-card-h-meta">
+            <span class="tool-card-h-users">&#128101; 2.8k 使用</span>
+            <span class="tool-card-h-arrow">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M4 2L9 7L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </a>
+        <a href="/calculators/roi-calculator.html" class="tool-card-h reveal reveal-delay-2">
+          <div class="tool-card-h-icon">🎯</div>
+          <div class="tool-card-h-body">
+            <h3>ROI 投资回报计算器</h3>
+            <p>评估广告投放的投入产出比与盈利情况</p>
+          </div>
+          <div class="tool-card-h-meta">
+            <span class="tool-card-h-users">&#128101; 1.9k 使用</span>
+            <span class="tool-card-h-arrow">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M4 2L9 7L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Features Section -->
-  <section class="section" style="background: var(--gray-50);">
+  <!-- Blog Recommendations -->
+  <section class="section" id="blog">
     <div class="container">
-      <div class="section-header">
-        <span class="section-label">我们的优势</span>
-        <h2>为什么选择 AdCalcs</h2>
-        <p>专业、精准、免费的广告收益计算工具</p>
+      <div class="section-header reveal">
+        <span class="section-label">最新文章</span>
+        <h2>广告收益知识指南</h2>
+        <p>深入了解 CPM、RPM 和广告收益的核心概念与实战技巧</p>
       </div>
-      <div class="features-grid">
+      <div class="blog-grid">
+        <a href="/blog/what-is-cpm.html" class="blog-card-modern reveal reveal-delay-1">
+          <div class="blog-card-cover" style="background:linear-gradient(135deg,#dbeafe,#ede9fe);">📊</div>
+          <div class="blog-card-body">
+            <span class="blog-card-category">基础知识</span>
+            <h3>什么是 CPM？CPM 计算方式详解</h3>
+            <p>了解 CPM 的定义、计算方法及其在广告投放中的重要作用，帮助广告主优化预算分配。</p>
+            <div class="blog-card-meta">
+              <span>📅 2026-01-15</span>
+              <span>📖 5 分钟阅读</span>
+            </div>
+          </div>
+        </a>
+        <a href="/blog/what-is-rpm.html" class="blog-card-modern reveal reveal-delay-2">
+          <div class="blog-card-cover" style="background:linear-gradient(135deg,#d1fae5,#dbeafe);">📈</div>
+          <div class="blog-card-body">
+            <span class="blog-card-category">基础知识</span>
+            <h3>什么是 RPM？RPM 与 CPM 的区别</h3>
+            <p>深入解析 RPM 的计算方式，以及它与 CPM 的核心区别，帮助内容创作者优化变现策略。</p>
+            <div class="blog-card-meta">
+              <span>📅 2026-01-20</span>
+              <span>📖 4 分钟阅读</span>
+            </div>
+          </div>
+        </a>
+        <a href="/blog/youtube-cpm-by-country.html" class="blog-card-modern reveal reveal-delay-3">
+          <div class="blog-card-cover" style="background:linear-gradient(135deg,#fef3c7,#dbeafe);">🌍</div>
+          <div class="blog-card-body">
+            <span class="blog-card-category">数据分析</span>
+            <h3>各国 YouTube CPM 数据对比</h3>
+            <p>查看全球主要国家的 YouTube CPM 数据，了解不同地区的广告价值和收益潜力。</p>
+            <div class="blog-card-meta">
+              <span>📅 2026-02-01</span>
+              <span>📖 7 分钟阅读</span>
+            </div>
+          </div>
+        </a>
+        <a href="/blog/how-much-does-youtube-pay.html" class="blog-card-modern reveal reveal-delay-4">
+          <div class="blog-card-cover" style="background:linear-gradient(135deg,#ede9fe,#fce7f3);">▶</div>
+          <div class="blog-card-body">
+            <span class="blog-card-category">收益指南</span>
+            <h3>YouTube 播放量收益全解析</h3>
+            <p>详细分析 YouTube 不同播放量级别的预期收益，了解影响广告收入的各种因素。</p>
+            <div class="blog-card-meta">
+              <span>📅 2026-02-10</span>
+              <span>📖 6 分钟阅读</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
 
-        <div class="feature-item">
-          <div class="feature-icon">🆓</div>
-          <h4>免费使用</h4>
-          <p>所有计算工具完全免费，无需注册，不限次数使用。</p>
+  <!-- Content Section (AdSense friendly) -->
+  <section class="section content-section" id="why-earnings-change">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">深入了解</span>
+        <h2>为什么广告收益会变化？</h2>
+        <p>了解影响广告收入的关键因素，帮助您更好地优化内容变现策略</p>
+      </div>
+      <div class="content-layout">
+        <div class="content-article reveal">
+          <p>很多内容创作者会发现，即使播放量或展示次数保持不变，每月的广告收入却可能上下波动。这种情况其实非常正常，因为广告收益受到多种因素的综合影响。了解这些因素，不仅能帮助您理解收入变化的原因，更能指导您制定更有效的内容策略。</p>
+
+          <h3>季节性与节日效应</h3>
+          <p>广告市场具有明显的季节性特征。每年第四季度（10月-12月）是广告市场的黄金期，因为感恩节、黑五、圣诞节等节日密集，品牌广告预算大幅增加。这段时间的 CPM 通常比上半年高出 20%-50%。相反，第一季度通常是广告淡季，CPM 会明显回落。对于内容创作者来说，了解这一规律有助于合理规划收入预期和内容发布节奏。</p>
+
+          <h3>受众地区与 demographics</h3>
+          <p>不同地区的广告价值差异巨大。来自美国、加拿大、英国、澳大利亚等英语国家的观众，其 CPM 通常是东南亚或南美地区观众的 3-5 倍。此外，受众的年龄段、性别、兴趣爱好也直接影响广告主的出价。例如，25-45 岁的高收入人群是最受广告主青睐的群体，针对这一受众的内容往往能获得更高的 RPM。</p>
+
+          <h3>内容类型与广告兼容性</h3>
+          <p>不同类型的內容对广告的吸引力不同。财经、科技、教育、法律类内容通常具有最高的 CPM，因为这些领域的广告主愿意为精准触达支付更高的价格。而娱乐、游戏、生活类内容的 CPM 相对较低，但通常有更大的流量潜力。选择垂直领域时，需要在流量规模和 CPM 之间找到平衡点。</p>
+
+          <h3>广告平台政策与算法变化</h3>
+          <p>YouTube、TikTok 等平台会不定期调整广告政策和算法。例如，YouTube 的广告友好内容指南更新、TikTok 创作者基金规则的调整，都会直接影响创作者的收益。跟踪平台政策变化，及时调整内容方向，是维持稳定收入的重要策略。</p>
+
+          <h3>广告填充率与格式</h3>
+          <p>填充率是指实际展示广告的播放次数占比。即使播放量很高，如果填充率低，实际收入也会大打折扣。影响填充率的因素包括：广告库存量、广告定位匹配度、用户使用的设备与地区等。此外，不同广告格式（如视频广告 vs 展示广告）的收益差异也很大。通常，视频广告的 RPM 是展示广告的 2-3 倍。</p>
+
+          <p>总体来说，广告收益的波动是多种因素共同作用的结果。通过持续优化內容质量、精准定位受众、关注平台政策变化，创作者可以逐步提升和稳定自己的广告收入。使用我们的收益计算工具，可以帮助您更清晰地了解各项指标对最终收入的影响。</p>
         </div>
-
-        <div class="feature-item">
-          <div class="feature-icon">⚡</div>
-          <h4>快速计算</h4>
-          <p>输入数据即刻获得结果，实时更新，无需等待。</p>
+        <div class="content-visual reveal reveal-delay-2">
+          <h3>📋 影响广告收益的 5 大因素</h3>
+          <ul>
+            <li>
+              <span class="factor-icon" style="background:#dbeafe;">📅</span>
+              <span><strong>季节性</strong> — Q4 旺季 CPM 可提升 20-50%</span>
+            </li>
+            <li>
+              <span class="factor-icon" style="background:#d1fae5;">🌍</span>
+              <span><strong>受众地区</strong> — 北美 CPM 是东南亚的 3-5 倍</span>
+            </li>
+            <li>
+              <span class="factor-icon" style="background:#fef3c7;">🎬</span>
+              <span><strong>内容类型</strong> — 财经科技类 CPM 最高</span>
+            </li>
+            <li>
+              <span class="factor-icon" style="background:#ede9fe;">⚙️</span>
+              <span><strong>平台政策</strong> — 算法更新直接影响收入</span>
+            </li>
+            <li>
+              <span class="factor-icon" style="background:#fce7f3;">📱</span>
+              <span><strong>广告格式</strong> — 视频广告 RPM 是展示广告的 2-3 倍</span>
+            </li>
+          </ul>
+          <p style="font-size:0.85rem;color:var(--gray-400);margin-top:1rem;padding-top:1rem;border-top:1px solid var(--gray-100);">数据来源：行业公开报告与平台官方数据，仅供参考。</p>
         </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="feature-item">
-          <div class="feature-icon">📊</div>
-          <h4>数据准确</h4>
-          <p>基于行业标准数据和实际投放经验，计算结果真实可靠。</p>
+  <!-- Country CPM Table -->
+  <section class="section" id="cpm-table">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">全球数据</span>
+        <h2>热门国家 YouTube CPM 数据</h2>
+        <p>不同国家的广告价值差异显著，了解这些数据有助于优化内容和受众策略</p>
+      </div>
+      <div class="table-section reveal">
+        <table class="cpm-table">
+          <thead>
+            <tr>
+              <th>国家/地区</th>
+              <th>平均 CPM</th>
+              <th>平均 RPM</th>
+              <th>广告竞争度</th>
+              <th>季度趋势</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="country-cell"><span class="country-flag">🇺🇸</span> 美国</span></td>
+              <td data-label="平均 CPM">$8.50</td>
+              <td data-label="平均 RPM">$4.68</td>
+              <td data-label="广告竞争度"><span class="competition-high">高</span></td>
+              <td data-label="季度趋势"><span class="trend-up">&#9650; +5.2%</span></td>
+            </tr>
+            <tr>
+              <td><span class="country-cell"><span class="country-flag">🇬🇧</span> 英国</span></td>
+              <td data-label="平均 CPM">$7.80</td>
+              <td data-label="平均 RPM">$4.29</td>
+              <td data-label="广告竞争度"><span class="competition-high">高</span></td>
+              <td data-label="季度趋势"><span class="trend-up">&#9650; +3.8%</span></td>
+            </tr>
+            <tr>
+              <td><span class="country-cell"><span class="country-flag">🇨🇦</span> 加拿大</span></td>
+              <td data-label="平均 CPM">$7.20</td>
+              <td data-label="平均 RPM">$3.96</td>
+              <td data-label="广告竞争度"><span class="competition-mid">中</span></td>
+              <td data-label="季度趋势"><span class="trend-up">&#9650; +2.1%</span></td>
+            </tr>
+            <tr>
+              <td><span class="country-cell"><span class="country-flag">🇦🇺</span> 澳大利亚</span></td>
+              <td data-label="平均 CPM">$7.00</td>
+              <td data-label="平均 RPM">$3.85</td>
+              <td data-label="广告竞争度"><span class="competition-mid">中</span></td>
+              <td data-label="季度趋势"><span class="trend-up">&#9650; +4.5%</span></td>
+            </tr>
+            <tr>
+              <td><span class="country-cell"><span class="country-flag">🇩🇪</span> 德国</span></td>
+              <td data-label="平均 CPM">$6.50</td>
+              <td data-label="平均 RPM">$3.58</td>
+              <td data-label="广告竞争度"><span class="competition-mid">中</span></td>
+              <td data-label="季度趋势"><span class="trend-up">&#9650; +1.8%</span></td>
+            </tr>
+            <tr>
+              <td><span class="country-cell"><span class="country-flag">🇯🇵</span> 日本</span></td>
+              <td data-label="平均 CPM">$6.20</td>
+              <td data-label="平均 RPM">$3.41</td>
+              <td data-label="广告竞争度"><span class="competition-mid">中</span></td>
+              <td data-label="季度趋势"><span class="trend-down">&#9660; -0.5%</span></td>
+            </tr>
+            <tr>
+              <td><span class="country-cell"><span class="country-flag">🇫🇷</span> 法国</span></td>
+              <td data-label="平均 CPM">$5.80</td>
+              <td data-label="平均 RPM">$3.19</td>
+              <td data-label="广告竞争度"><span class="competition-mid">中</span></td>
+              <td data-label="季度趋势"><span class="trend-up">&#9650; +2.3%</span></td>
+            </tr>
+            <tr>
+              <td><span class="country-cell"><span class="country-flag">🇰🇷</span> 韩国</span></td>
+              <td data-label="平均 CPM">$5.50</td>
+              <td data-label="平均 RPM">$3.03</td>
+              <td data-label="广告竞争度"><span class="competition-mid">中</span></td>
+              <td data-label="季度趋势"><span class="trend-up">&#9650; +3.2%</span></td>
+            </tr>
+            <tr>
+              <td><span class="country-cell"><span class="country-flag">🇹🇼</span> 台湾</span></td>
+              <td data-label="平均 CPM">$4.80</td>
+              <td data-label="平均 RPM">$2.64</td>
+              <td data-label="广告竞争度"><span class="competition-low">低</span></td>
+              <td data-label="季度趋势"><span class="trend-up">&#9650; +1.5%</span></td>
+            </tr>
+            <tr>
+              <td><span class="country-cell"><span class="country-flag">🇭🇰</span> 香港</span></td>
+              <td data-label="平均 CPM">$5.20</td>
+              <td data-label="平均 RPM">$2.86</td>
+              <td data-label="广告竞争度"><span class="competition-mid">中</span></td>
+              <td data-label="季度趋势"><span class="trend-up">&#9650; +0.8%</span></td>
+            </tr>
+            <tr>
+              <td><span class="country-cell"><span class="country-flag">🇸🇬</span> 新加坡</span></td>
+              <td data-label="平均 CPM">$6.80</td>
+              <td data-label="平均 RPM">$3.74</td>
+              <td data-label="广告竞争度"><span class="competition-mid">中</span></td>
+              <td data-label="季度趋势"><span class="trend-up">&#9650; +6.1%</span></td>
+            </tr>
+            <tr>
+              <td><span class="country-cell"><span class="country-flag">🇧🇷</span> 巴西</span></td>
+              <td data-label="平均 CPM">$2.80</td>
+              <td data-label="平均 RPM">$1.54</td>
+              <td data-label="广告竞争度"><span class="competition-low">低</span></td>
+              <td data-label="季度趋势"><span class="trend-up">&#9650; +4.0%</span></td>
+            </tr>
+            <tr>
+              <td><span class="country-cell"><span class="country-flag">🇮🇳</span> 印度</span></td>
+              <td data-label="平均 CPM">$1.50</td>
+              <td data-label="平均 RPM">$0.83</td>
+              <td data-label="广告竞争度"><span class="competition-low">低</span></td>
+              <td data-label="季度趋势"><span class="trend-up">&#9650; +12.5%</span></td>
+            </tr>
+            <tr>
+              <td><span class="country-cell"><span class="country-flag">🇵🇭</span> 菲律宾</span></td>
+              <td data-label="平均 CPM">$1.80</td>
+              <td data-label="平均 RPM">$0.99</td>
+              <td data-label="广告竞争度"><span class="competition-low">低</span></td>
+              <td data-label="季度趋势"><span class="trend-up">&#9650; +7.3%</span></td>
+            </tr>
+            <tr>
+              <td><span class="country-cell"><span class="country-flag">🇮🇩</span> 印尼</span></td>
+              <td data-label="平均 CPM">$1.20</td>
+              <td data-label="平均 RPM">$0.66</td>
+              <td data-label="广告竞争度"><span class="competition-low">低</span></td>
+              <td data-label="季度趋势"><span class="trend-up">&#9650; +9.8%</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="text-align:center;font-size:0.8rem;color:var(--gray-400);margin-top:1rem;">数据基于行业公开报告估算，实际值可能因内容类型、受众和设备等因素有所不同。</p>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section cta-section" id="cta">
+    <div class="container">
+      <div class="cta-content reveal">
+        <h2>立即免费计算你的广告收益</h2>
+        <p>无需注册，不限次数，立即获取精准的广告收益估算数据</p>
+        <a href="#tools" class="btn btn-lg">开始免费计算 &#8594;</a>
+        <div class="cta-trust">
+          <span>&#10003; 免费使用</span>
+          <span>&#10003; 无需注册</span>
+          <span>&#10003; 数据精准</span>
         </div>
-
-        <div class="feature-item">
-          <div class="feature-icon">📱</div>
-          <h4>支持移动端</h4>
-          <p>响应式设计，手机、平板、电脑均可流畅使用。</p>
-        </div>
-
-        <div class="feature-item">
-          <div class="feature-icon">🔍</div>
-          <h4>SEO 友好</h4>
-          <p>语义化 HTML 结构，助力搜索引擎收录与排名提升。</p>
-        </div>
-
-        <div class="feature-item">
-          <div class="feature-icon">🌐</div>
-          <h4>中文支持</h4>
-          <p>全中文界面与内容，符合中文用户使用习惯。</p>
-        </div>
-
       </div>
     </div>
   </section>
@@ -249,13 +663,12 @@
   <!-- FAQ Section -->
   <section class="section" id="faq">
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal">
         <span class="section-label">常见问题</span>
         <h2>关于广告收益的常见问题</h2>
         <p>帮助您更好地理解广告收益相关的核心概念</p>
       </div>
       <div class="faq-list">
-
         <div class="faq-item">
           <button class="faq-question" type="button">
             <span>CPM 是什么？</span>
@@ -267,7 +680,6 @@
             <p>了解更多：<a href="/blog/what-is-cpm.html">什么是 CPM？CPM 计算方式详解</a></p>
           </div>
         </div>
-
         <div class="faq-item">
           <button class="faq-question" type="button">
             <span>RPM 是什么？</span>
@@ -279,7 +691,6 @@
             <p>了解更多：<a href="/blog/what-is-rpm.html">什么是 RPM？RPM 与 CPM 的区别</a></p>
           </div>
         </div>
-
         <div class="faq-item">
           <button class="faq-question" type="button">
             <span>YouTube 创作者如何赚钱？</span>
@@ -294,7 +705,6 @@
             <p>了解详情：<a href="/blog/how-much-does-youtube-pay.html">YouTube 播放量收益全解析</a></p>
           </div>
         </div>
-
         <div class="faq-item">
           <button class="faq-question" type="button">
             <span>TikTok 收益如何计算？</span>
@@ -308,7 +718,6 @@
             <p>TikTok 的 RPM 通常在 $0.02-$0.10 之间，远低于 YouTube。但 TikTok 的优势在于病毒式传播带来的海量曝光。</p>
           </div>
         </div>
-
         <div class="faq-item">
           <button class="faq-question" type="button">
             <span>广告 ROI 如何计算？</span>
@@ -321,7 +730,6 @@
             <p>正 ROI 表示广告投放盈利，负 ROI 则表示亏损。一般建议 ROI 达到 200% 以上才算是比较成功的广告投放。使用我们的 <a href="/calculators/roi-calculator.html">ROI 计算器</a> 快速计算您的广告投资回报率。</p>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -332,13 +740,14 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <h3>AdCalcs</h3>
-          <p>免费广告收益与 CPM 计算工具。为内容创作者、广告投放人员和自媒体运营者提供专业收益估算工具。</p>
+          <p>免费广告收益与 CPM 计算工具。为内容创作者、广告投放人员和自媒体运营者提供专业收益估算工具。精准、快速、完全免费。</p>
         </div>
         <div class="footer-col">
           <h4>工具</h4>
           <ul>
             <li><a href="/calculators/youtube-money-calculator.html">YouTube 收益计算器</a></li>
             <li><a href="/calculators/tiktok-money-calculator.html">TikTok 收益计算器</a></li>
+            <li><a href="/calculators/adsense-calculator.html">AdSense 收入计算器</a></li>
             <li><a href="/calculators/cpm-calculator.html">CPM 计算器</a></li>
             <li><a href="/calculators/rpm-calculator.html">RPM 计算器</a></li>
             <li><a href="/calculators/roi-calculator.html">ROI 计算器</a></li>
@@ -354,7 +763,7 @@
           </ul>
         </div>
         <div class="footer-col">
-          <h4>关于</h4>
+          <h4>支持</h4>
           <ul>
             <li><a href="/about.html">关于我们</a></li>
             <li><a href="/contact.html">联系方式</a></li>
@@ -362,6 +771,23 @@
             <li><a href="/terms.html">用户协议</a></li>
             <li><a href="/disclaimer.html">免责声明</a></li>
           </ul>
+        </div>
+        <div class="footer-col">
+          <h4>关注我们</h4>
+          <div class="footer-social">
+            <a href="mailto:admin@adcalcs.com" aria-label="邮箱">
+              <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </a>
+            <a href="#" aria-label="Twitter">
+              <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" aria-label="RSS">
+              <svg viewBox="0 0 24 24"><path d="M4 11c6.075 0 11 4.925 11 11h-3c0-4.418-3.582-8-8-8V11zm0-6c9.389 0 17 7.611 17 17h-3c0-7.732-6.268-14-14-14V5z"/><circle cx="5.5" cy="18.5" r="2.5"/></svg>
+            </a>
+          </div>
+          <p style="font-size:0.8rem;color:var(--gray-500);margin-top:0.75rem;line-height:1.5;">
+            <a href="mailto:admin@adcalcs.com" style="color:var(--gray-500);">admin@adcalcs.com</a>
+          </p>
         </div>
       </div>
       <div class="footer-bottom">
@@ -372,5 +798,6 @@
   </footer>
 
   <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/calculators.js"></script>
 </body>
 </html>

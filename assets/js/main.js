@@ -78,4 +78,75 @@ document.addEventListener('DOMContentLoaded', function () {
       navbar.classList.add('scrolled');
     }
   }
+
+  // --- Scroll Reveal (Intersection Observer) ---
+  function createRevealObserver() {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(function (el) {
+      observer.observe(el);
+    });
+  }
+  createRevealObserver();
+
+  // --- Number Counting Animation ---
+  function animateCounters() {
+    var counterObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var el = entry.target;
+          var target = parseFloat(el.getAttribute('data-target'));
+          var prefix = el.getAttribute('data-prefix') || '';
+          var suffix = el.getAttribute('data-suffix') || '';
+          var duration = 2000;
+          var startTime = performance.now();
+
+          function updateCounter(currentTime) {
+            var elapsed = currentTime - startTime;
+            var progress = Math.min(elapsed / duration, 1);
+            // easeOutExpo
+            var eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+            var current = eased * target;
+            var display = prefix;
+
+            if (Number.isInteger(target)) {
+              display += Math.round(current).toLocaleString();
+            } else {
+              display += current.toFixed(2);
+            }
+            display += suffix;
+            el.textContent = display;
+
+            if (progress < 1) {
+              requestAnimationFrame(updateCounter);
+            } else {
+              // Final value
+              var finalDisplay = prefix;
+              if (Number.isInteger(target)) {
+                finalDisplay += Math.round(target).toLocaleString();
+              } else {
+                finalDisplay += target.toFixed(2);
+              }
+              finalDisplay += suffix;
+              el.textContent = finalDisplay;
+            }
+          }
+          requestAnimationFrame(updateCounter);
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.stat-value').forEach(function (el) {
+      counterObserver.observe(el);
+    });
+  }
+  animateCounters();
 });
