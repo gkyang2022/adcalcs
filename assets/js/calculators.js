@@ -2,6 +2,15 @@
    AdCalcs.com - 计算器逻辑
    ============================================ */
 
+/* ---------- Helper Functions ---------- */
+function formatCurrency(value) {
+  return '$' + Number(value).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+function safeText(id, value) {
+  var el = document.getElementById(id);
+  if (el) el.textContent = value;
+}
+
 /* ---------- YouTube 收益计算器 ---------- */
 function calcYoutube() {
   var views = parseFloat(document.getElementById('yt-views').value) || 0;
@@ -150,6 +159,21 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
   });
+
+  /* ---------- Hero Auto-Calc on Load ---------- */
+  calcHeroYoutube();
+
+  /* ---------- Hero Auto-Calc on Input Change ---------- */
+  document.querySelectorAll('.hero-calc-card input').forEach(function (input) {
+    input.addEventListener('input', function () {
+      var activePanel = document.querySelector('.hero-calc-panel.active');
+      if (activePanel) {
+        var tabId = activePanel.id.replace('hero-panel-', '');
+        if (tabId === 'youtube') calcHeroYoutube();
+        else if (tabId === 'adsense') calcHeroAdsense();
+      }
+    });
+  });
 });
 
 /* ---------- Hero Tab Switching ---------- */
@@ -160,8 +184,14 @@ function switchHeroTab(tab) {
   document.querySelectorAll('.hero-calc-panel').forEach(function(p) {
     p.classList.remove('active');
   });
-  document.querySelector('.hero-calc-tab[data-tab="' + tab + '"]').classList.add('active');
-  document.getElementById('hero-panel-' + tab).classList.add('active');
+  var tabBtn = document.querySelector('.hero-calc-tab[data-tab="' + tab + '"]');
+  var panel = document.getElementById('hero-panel-' + tab);
+  if (tabBtn) tabBtn.classList.add('active');
+  if (panel) panel.classList.add('active');
+
+  // Auto-calculate on tab switch
+  if (tab === 'youtube') calcHeroYoutube();
+  else if (tab === 'adsense') calcHeroAdsense();
 }
 
 /* ---------- Hero YouTube Calculator ---------- */
@@ -183,28 +213,32 @@ function calcHeroYoutube() {
   var monthly = daily * 30;
   var yearly = daily * 365;
 
-  document.getElementById('hero-yt-daily').textContent = '$' + daily.toFixed(2);
-  document.getElementById('hero-yt-monthly').textContent = '$' + monthly.toFixed(2);
-  document.getElementById('hero-yt-rpm-result').textContent = '$' + adjRpm.toFixed(2);
-  document.getElementById('hero-yt-yearly').textContent = '$' + yearly.toFixed(2);
-  document.getElementById('hero-yt-results').style.display = 'grid';
+  safeText('hero-yt-daily', formatCurrency(daily));
+  safeText('hero-yt-monthly', formatCurrency(monthly));
+  safeText('hero-yt-rpm-result', formatCurrency(adjRpm));
+  safeText('hero-yt-yearly', formatCurrency(yearly));
+  var res = document.getElementById('hero-yt-results');
+  if (res) res.classList.add('visible');
 }
 
 /* ---------- Hero AdSense Calculator ---------- */
 function calcHeroAdsense() {
   var impressions = parseFloat(document.getElementById('hero-as-impressions').value) || 0;
   var rpm = parseFloat(document.getElementById('hero-as-rpm').value) || 0;
-  var ctr = parseFloat(document.getElementById('hero-as-ctr').value) || 0;
+  var ctr = parseFloat(document.getElementById('hero-as-ctr').value) || 2.5;
 
-  var daily = (impressions / 1000) * rpm;
+  var ctrMultiplier = 1 + (ctr - 2.5) * 0.05;
+  var effectiveRpm = rpm * ctrMultiplier;
+  var daily = (impressions / 1000) * effectiveRpm;
   var monthly = daily * 30;
   var yearly = daily * 365;
 
-  document.getElementById('hero-as-daily').textContent = '$' + daily.toFixed(2);
-  document.getElementById('hero-as-monthly').textContent = '$' + monthly.toFixed(2);
-  document.getElementById('hero-as-yearly').textContent = '$' + yearly.toFixed(2);
-  document.getElementById('hero-as-rpm-result').textContent = '$' + rpm.toFixed(2);
-  document.getElementById('hero-as-results').style.display = 'grid';
+  safeText('hero-as-daily', formatCurrency(daily));
+  safeText('hero-as-monthly', formatCurrency(monthly));
+  safeText('hero-as-yearly', formatCurrency(yearly));
+  safeText('hero-as-rpm-result', formatCurrency(effectiveRpm));
+  var res = document.getElementById('hero-as-results');
+  if (res) res.classList.add('visible');
 }
 
 /* ---------- Form Submit Prevention ---------- */
