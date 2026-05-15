@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>广告收益知识博客 — CPM RPM YouTube TikTok 收益指南 | AdCalcs</title>
+  <meta name="description" content="AdCalcs 广告收益知识博客，深入解析 CPM、RPM、YouTube 收益、TikTok 收益、AdSense 收入等核心概念，帮助内容创作者和广告投放人员精准理解广告收益机制。">
+  <link rel="canonical" href="https://adcalcs.com/blog/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <meta property="og:title" content="广告收益知识博客 — AdCalcs">
+  <meta property="og:description" content="深入解析 CPM、RPM、YouTube 收益、TikTok 收益等广告收益核心概念。">
+  <meta property="og:url" content="https://adcalcs.com/blog/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="广告收益知识博客 | AdCalcs">
+  <meta name="keywords" content="CPM, RPM, YouTube收益, TikTok收益, AdSense收入, 广告收益, 计算工具">
+
+  <!-- JSON-LD BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://adcalcs.com/" },
+      { "@type": "ListItem", "position": 2, "name": "博客", "item": "https://adcalcs.com/blog/" }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD BlogPosting List -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "广告收益知识博客",
+    "description": "AdCalcs 广告收益知识博客",
+    "url": "https://adcalcs.com/blog/",
+    "mainEntity": [
+      {
+        "@type": "BlogPosting",
+        "headline": "什么是 CPM？",
+        "url": "https://adcalcs.com/blog/what-is-cpm.html",
+        "datePublished": "2026-03-01"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "什么是 RPM？",
+        "url": "https://adcalcs.com/blog/what-is-rpm.html",
+        "datePublished": "2026-03-15"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "各国 YouTube CPM 排名",
+        "url": "https://adcalcs.com/blog/youtube-cpm-by-country.html",
+        "datePublished": "2026-04-01"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "YouTube 播放量收益全解析",
+        "url": "https://adcalcs.com/blog/how-much-does-youtube-pay.html",
+        "datePublished": "2026-05-01"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "YouTube 一万播放到底能赚多少钱？",
+        "url": "https://adcalcs.com/blog/youtube-10000-views-earnings.html",
+        "datePublished": "2026-05-15"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "TikTok 一万播放到底能赚多少钱？",
+        "url": "https://adcalcs.com/blog/tiktok-10000-views-earnings.html",
+        "datePublished": "2026-05-15"
+      },
+      {
+        "@type": "BlogPosting",
+        "headline": "AdSense 网站收入计算公式",
+        "url": "https://adcalcs.com/blog/adsense-website-earnings.html",
+        "datePublished": "2026-05-15"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JDXWE5L5SL"></script>
+  <script defer src="https://umi.317520.xyz/script.js" data-website-id="29475918-2ce0-4050-a6cf-640a520291c6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JDXWE5L5SL');
+  </script>
+
+  <style>
+    /* ============================================
+       Blog Hero
+       ============================================ */
+    .blog-hero {
+      position: relative;
+      padding: 8rem 0 3rem;
+      overflow: hidden;
+      background: linear-gradient(180deg, #f8faff 0%, var(--white) 60%, var(--white) 100%);
+    }
+    .blog-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(59, 130, 246, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 130, 246, 0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black, transparent);
+      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black, transparent);
+      pointer-events: none;
+    }
+    .blog-hero .container {
+      position: relative;
+      z-index: 1;
+    }
+    .blog-hero h1 {
+      font-size: 2.75rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+    }
+    .blog-hero p {
+      font-size: 1.1rem;
+      color: var(--gray-500);
+      max-width: 560px;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    /* ============================================
+       Search Box
+       ============================================ */
+    .search-box {
+      position: relative;
+      max-width: 480px;
+      margin-bottom: 1.5rem;
+    }
+    .search-box svg {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      color: var(--gray-400);
+      pointer-events: none;
+    }
+    .search-box input {
+      width: 100%;
+      padding: 0.75rem 1rem 0.75rem 2.75rem;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      font-size: 0.9rem;
+      font-family: var(--font-sans);
+      color: var(--gray-900);
+      background: var(--white);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      box-sizing: border-box;
+    }
+    .search-box input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
+    }
+    .search-box input::placeholder {
+      color: var(--gray-400);
+    }
+
+    /* ============================================
+       Category Tags
+       ============================================ */
+    .category-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0;
+    }
+    .category-tags a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--gray-600);
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .category-tags a:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: var(--primary-50);
+    }
+    .category-tags a.active {
+      background: var(--primary);
+      color: var(--white);
+      border-color: var(--primary);
+    }
+
+    /* ============================================
+       Blog Layout (2-column)
+       ============================================ */
+    .blog-layout {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    .blog-main {
+      min-width: 0;
+    }
+
+    /* ============================================
+       Sidebar
+       ============================================ */
+    .blog-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      position: sticky;
+      top: 6rem;
+    }
+    .sidebar-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-xl);
+      padding: 1.5rem;
+    }
+    .sidebar-card h4 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--gray-400);
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--gray-100);
+    }
+
+    /* Popular Posts */
+    .popular-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .popular-item {
+      display: flex;
+      gap: 0.85rem;
+      text-decoration: none;
+      align-items: flex-start;
+    }
+    .popular-item:hover .popular-item-title {
+      color: var(--primary);
+    }
+    .popular-item-cover {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+    .popular-item-body {
+      flex: 1;
+      min-width: 0;
+    }
+    .popular-item-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--gray-800);
+      line-height: 1.4;
+      transition: color 0.2s ease;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .popular-item-meta {
+      font-size: 0.7rem;
+      color: var(--gray-400);
+      margin-top: 0.2rem;
+    }
+
+    /* Category counts */
+    .category-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .category-list-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.875rem;
+      padding: 0.3rem 0;
+      text-decoration: none;
+      color: var(--gray-600);
+      transition: color 0.2s ease;
+    }
+    .category-list-item:hover {
+      color: var(--primary);
+    }
+    .category-list-item .count {
+      background: var(--gray-100);
+      color: var(--gray-500);
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+    }
+
+    /* Sidebar CTA */
+    .sidebar-cta {
+      background: linear-gradient(135deg, var(--primary) 0%, #6366f1 100%);
+      border: none;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .sidebar-cta h4 {
+      color: rgba(255,255,255,0.6);
+      border-bottom-color: rgba(255,255,255,0.15);
+    }
+    .sidebar-cta p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    .sidebar-cta .btn {
+      background: var(--white);
+      color: var(--primary);
+      font-size: 0.85rem;
+      padding: 0.6rem 1.25rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      width: 100%;
+      justify-content: center;
+    }
+    .sidebar-cta .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    /* ============================================
+       Pagination
+       ============================================ */
+    .pagination {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      margin-top: 2.5rem;
+    }
+    .pagination a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 38px;
+      height: 38px;
+      padding: 0 0.6rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--gray-600);
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .pagination a:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .pagination a.active {
+      background: var(--primary);
+      color: var(--white);
+      border-color: var(--primary);
+    }
+    .pagination a.prev-next {
+      font-weight: 600;
+      gap: 0.3rem;
+    }
+    .pagination .dots {
+      color: var(--gray-400);
+      font-size: 0.85rem;
+      padding: 0 0.3rem;
+    }
+
+    /* ============================================
+       Newsletter Section
+       ============================================ */
+    .newsletter-section {
+      background: var(--gray-50);
+      border-top: 1px solid var(--gray-100);
+    }
+    .newsletter-content {
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .newsletter-content h2 {
+      margin-bottom: 0.75rem;
+    }
+    .newsletter-content p {
+      color: var(--gray-500);
+      font-size: 1rem;
+      margin-bottom: 1.75rem;
+      line-height: 1.7;
+    }
+    .newsletter-box {
+      display: flex;
+      gap: 0.65rem;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+    .newsletter-box input {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      font-family: var(--font-sans);
+      color: var(--gray-900);
+      background: var(--white);
+      transition: border-color 0.2s ease;
+      box-sizing: border-box;
+    }
+    .newsletter-box input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
+    }
+    .newsletter-box input::placeholder {
+      color: var(--gray-400);
+    }
+    .newsletter-box .btn {
+      padding: 0.75rem 1.5rem;
+      flex-shrink: 0;
+      font-size: 0.9rem;
+    }
+    .newsletter-disclaimer {
+      font-size: 0.75rem;
+      color: var(--gray-400);
+      margin-top: 0.75rem;
+    }
+    .newsletter-disclaimer a {
+      color: var(--gray-500);
+      text-decoration: underline;
+    }
+
+    /* ============================================
+       Blog Section (space between hero and content)
+       ============================================ */
+    .blog-content-section {
+      padding: 3rem 0 5rem;
+    }
+
+    /* ============================================
+       Responsive
+       ============================================ */
+    @media (max-width: 1024px) {
+      .blog-layout {
+        grid-template-columns: 1fr;
+      }
+      .blog-sidebar {
+        position: static;
+      }
+      .blog-hero h1 {
+        font-size: 2.25rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .blog-hero {
+        padding: 6rem 0 2rem;
+      }
+      .blog-hero h1 {
+        font-size: 1.85rem;
+      }
+      .blog-hero p {
+        font-size: 0.95rem;
+      }
+      .blog-content-section {
+        padding: 2rem 0 3rem;
+      }
+      .search-box {
+        max-width: 100%;
+      }
+      .newsletter-box {
+        flex-direction: column;
+      }
+      .newsletter-box .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .category-tags {
+        gap: 0.4rem;
+      }
+      .category-tags a {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.65rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .blog-hero h1 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="主导航">
+    <div class="container">
+      <a href="/" class="logo" aria-label="AdCalcs 首页">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="lg" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse"><stop stop-color="#3b82f6"/><stop offset="1" stop-color="#2563eb"/></linearGradient></defs><rect width="32" height="32" rx="8" fill="url(#lg)"/><path d="M8 24L16 10L24 24" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M11.5 17.5L20.5 17.5" stroke="#93c5fd" stroke-width="2.5" stroke-linecap="round"/></svg>
+        <span>AdCalcs</span>
+      </a>
+      <button class="menu-toggle" aria-label="打开菜单" type="button"><span></span><span></span><span></span></button>
+      <ul class="nav-links">
+        <li><a href="/">首页</a></li>
+        <li><a href="/calculators/youtube-money-calculator.html">YouTube</a></li>
+        <li><a href="/calculators/tiktok-money-calculator.html">TikTok</a></li>
+        <li><a href="/calculators/adsense-calculator.html">AdSense</a></li>
+        <li><a href="/calculators/cpm-calculator.html">CPM</a></li>
+        <li><a href="/blog/" class="active">博客</a></li>
+        <li><a href="/about.html">关于</a></li>
+        <li><a href="/contact.html">联系</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ==============================
+       Blog Hero
+       ============================== -->
+  <section class="blog-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="面包屑导航">
+        <a href="/">首页</a><span class="sep">/</span><span>博客</span>
+      </nav>
+      <h1>广告收益知识博客</h1>
+      <p>深入了解 CPM、RPM、YouTube 收益、TikTok 收益和 AdSense 收入的核心概念。为内容创作者和广告投放人员提供实用的收益知识。</p>
+
+      <!-- Search -->
+      <div class="search-box" role="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input type="search" placeholder="搜索文章关键词…" aria-label="搜索文章">
+      </div>
+
+      <!-- Category Tags -->
+      <div class="category-tags" role="tablist" aria-label="文章分类">
+        <a href="#" class="active" role="tab" aria-selected="true">全部</a>
+        <a href="#" role="tab">CPM</a>
+        <a href="#" role="tab">RPM</a>
+        <a href="#" role="tab">YouTube 收益</a>
+        <a href="#" role="tab">TikTok 收益</a>
+        <a href="#" role="tab">AdSense</a>
+        <a href="#" role="tab">收益指南</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       Blog Content
+       ============================== -->
+  <section class="blog-content-section">
+    <div class="container">
+      <div class="blog-layout">
+
+        <!-- ===== Main Column ===== -->
+        <div class="blog-main">
+
+          <!-- Blog Grid -->
+          <div class="blog-grid">
+
+            <!-- Card 1: What is CPM -->
+            <article class="blog-card-modern">
+              <a href="/blog/what-is-cpm.html" style="text-decoration:none;display:block;">
+                <div class="blog-card-cover" style="background:linear-gradient(135deg,#dbeafe,#ede9fe);">📊</div>
+                <div class="blog-card-body">
+                  <span class="blog-card-category">CPM</span>
+                  <h3>什么是 CPM？—— 千次展示成本全面解读</h3>
+                  <p>CPM 是数字广告中最核心的指标之一。本文详细解释 CPM 的含义、计算方法以及它在广告收益中的关键作用。</p>
+                  <div class="blog-card-meta">
+                    <span>2026 年 3 月 1 日</span>
+                    <span>·</span>
+                    <span>5 分钟阅读</span>
+                  </div>
+                </div>
+              </a>
+            </article>
+
+            <!-- Card 2: What is RPM -->
+            <article class="blog-card-modern">
+              <a href="/blog/what-is-rpm.html" style="text-decoration:none;display:block;">
+                <div class="blog-card-cover" style="background:linear-gradient(135deg,#ede9fe,#dbeafe);">📈</div>
+                <div class="blog-card-body">
+                  <span class="blog-card-category">RPM</span>
+                  <h3>什么是 RPM？—— 千次展示收入深度解析</h3>
+                  <p>RPM 是内容创作者最关心的收益指标。了解 RPM 与 CPM 的区别，掌握提升 RPM 的实战方法。</p>
+                  <div class="blog-card-meta">
+                    <span>2026 年 3 月 15 日</span>
+                    <span>·</span>
+                    <span>5 分钟阅读</span>
+                  </div>
+                </div>
+              </a>
+            </article>
+
+            <!-- Card 3: YouTube CPM by Country -->
+            <article class="blog-card-modern">
+              <a href="/blog/youtube-cpm-by-country.html" style="text-decoration:none;display:block;">
+                <div class="blog-card-cover" style="background:linear-gradient(135deg,#fef3c7,#fed7aa);">🌍</div>
+                <div class="blog-card-body">
+                  <span class="blog-card-category">YouTube 收益</span>
+                  <h3>各国 YouTube CPM 排名（2026 更新）</h3>
+                  <p>不同国家的 YouTube CPM 差异巨大。美国 vs 印度差距可达 20 倍。查看完整排名，优化你的内容策略。</p>
+                  <div class="blog-card-meta">
+                    <span>2026 年 4 月 1 日</span>
+                    <span>·</span>
+                    <span>6 分钟阅读</span>
+                  </div>
+                </div>
+              </a>
+            </article>
+
+            <!-- Card 4: How Much Does YouTube Pay -->
+            <article class="blog-card-modern">
+              <a href="/blog/how-much-does-youtube-pay.html" style="text-decoration:none;display:block;">
+                <div class="blog-card-cover" style="background:linear-gradient(135deg,#ede9fe,#fce7f3);">▶</div>
+                <div class="blog-card-body">
+                  <span class="blog-card-category">YouTube 收益</span>
+                  <h3>YouTube 播放量收益全解析</h3>
+                  <p>100 万播放量到底能赚多少钱？深入分析影响 YouTube 收入的各类因素，包括视频长度、观众地区、内容类型等。</p>
+                  <div class="blog-card-meta">
+                    <span>2026 年 5 月 1 日</span>
+                    <span>·</span>
+                    <span>6 分钟阅读</span>
+                  </div>
+                </div>
+              </a>
+            </article>
+
+            <!-- Card 5: YouTube 10000 Views Earnings -->
+            <article class="blog-card-modern">
+              <a href="/blog/youtube-10000-views-earnings.html" style="text-decoration:none;display:block;">
+                <div class="blog-card-cover" style="background:linear-gradient(135deg,#fce7f3,#dbeafe);">💰</div>
+                <div class="blog-card-body">
+                  <span class="blog-card-category">YouTube 收益</span>
+                  <h3>YouTube 一万播放到底能赚多少钱？</h3>
+                  <p>一万播放从 $1 到 $150 不等，差距全在内容类型和观众地区。用真实数据和案例告诉你影响收益的真正因素。</p>
+                  <div class="blog-card-meta">
+                    <span>2026 年 5 月 15 日</span>
+                    <span>·</span>
+                    <span>7 分钟阅读</span>
+                  </div>
+                </div>
+              </a>
+            </article>
+
+            <!-- Card 6: TikTok 10000 Views Earnings -->
+            <article class="blog-card-modern">
+              <a href="/blog/tiktok-10000-views-earnings.html" style="text-decoration:none;display:block;">
+                <div class="blog-card-cover" style="background:linear-gradient(135deg,#fef3c7,#fed7aa);">🎵</div>
+                <div class="blog-card-body">
+                  <span class="blog-card-category">TikTok 收益</span>
+                  <h3>TikTok 一万播放到底能赚多少钱？</h3>
+                  <p>真实数据告诉你 TikTok 一万播放的 Creator Fund 收入，以及品牌合作、直播打赏、电商带货等更赚钱的变现方式。</p>
+                  <div class="blog-card-meta">
+                    <span>2026 年 5 月 15 日</span>
+                    <span>·</span>
+                    <span>8 分钟阅读</span>
+                  </div>
+                </div>
+              </a>
+            </article>
+
+            <!-- Card 7: AdSense Website Earnings -->
+            <article class="blog-card-modern">
+              <a href="/blog/adsense-website-earnings.html" style="text-decoration:none;display:block;">
+                <div class="blog-card-cover" style="background:linear-gradient(135deg,#dbeafe,#fce7f3);">📢</div>
+                <div class="blog-card-body">
+                  <span class="blog-card-category">AdSense</span>
+                  <h3>AdSense 收入计算公式：每天 1000 流量能赚多少钱？</h3>
+                  <p>完整 AdSense 收入计算公式，不同行业 RPM 数据表，三个实战案例拆解，帮你精准估算谷歌广告收入。</p>
+                  <div class="blog-card-meta">
+                    <span>2026 年 5 月 15 日</span>
+                    <span>·</span>
+                    <span>9 分钟阅读</span>
+                  </div>
+                </div>
+              </a>
+            </article>
+
+          </div>
+
+          <!-- Pagination -->
+          <nav class="pagination" aria-label="分页导航">
+            <a href="#" class="prev-next" aria-label="上一页">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 3L5 7L9 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              上一页
+            </a>
+            <a href="#" class="active" aria-current="page">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#" class="prev-next" aria-label="下一页">
+              下一页
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 3L9 7L5 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </nav>
+
+        </div>
+
+        <!-- ===== Sidebar ===== -->
+        <aside class="blog-sidebar" role="complementary" aria-label="侧边栏">
+
+          <!-- Popular Posts -->
+          <div class="sidebar-card">
+            <h4>🔥 热门文章</h4>
+            <div class="popular-list">
+              <a href="/blog/youtube-10000-views-earnings.html" class="popular-item">
+                <div class="popular-item-cover" style="background:linear-gradient(135deg,#fce7f3,#dbeafe);">💰</div>
+                <div class="popular-item-body">
+                  <div class="popular-item-title">YouTube 一万播放到底能赚多少钱？</div>
+                  <div class="popular-item-meta">🔥 1.2k 阅读</div>
+                </div>
+              </a>
+              <a href="/blog/youtube-cpm-by-country.html" class="popular-item">
+                <div class="popular-item-cover" style="background:linear-gradient(135deg,#fef3c7,#fed7aa);">🌍</div>
+                <div class="popular-item-body">
+                  <div class="popular-item-title">各国 YouTube CPM 排名（2026 更新）</div>
+                  <div class="popular-item-meta">🔥 980 阅读</div>
+                </div>
+              </a>
+              <a href="/blog/what-is-cpm.html" class="popular-item">
+                <div class="popular-item-cover" style="background:linear-gradient(135deg,#dbeafe,#ede9fe);">📊</div>
+                <div class="popular-item-body">
+                  <div class="popular-item-title">什么是 CPM？—— 千次展示成本全面解读</div>
+                  <div class="popular-item-meta">🔥 850 阅读</div>
+                </div>
+              </a>
+              <a href="/blog/how-much-does-youtube-pay.html" class="popular-item">
+                <div class="popular-item-cover" style="background:linear-gradient(135deg,#ede9fe,#fce7f3);">▶</div>
+                <div class="popular-item-body">
+                  <div class="popular-item-title">YouTube 播放量收益全解析</div>
+                  <div class="popular-item-meta">🔥 720 阅读</div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Categories -->
+          <div class="sidebar-card">
+            <h4>📂 文章分类</h4>
+            <div class="category-list">
+              <a href="#" class="category-list-item">
+                <span>CPM</span>
+                <span class="count">1</span>
+              </a>
+              <a href="#" class="category-list-item">
+                <span>RPM</span>
+                <span class="count">1</span>
+              </a>
+              <a href="#" class="category-list-item">
+                <span>YouTube 收益</span>
+                <span class="count">3</span>
+              </a>
+              <a href="#" class="category-list-item">
+                <span>TikTok 收益</span>
+                <span class="count">1</span>
+              </a>
+              <a href="#" class="category-list-item">
+                <span>AdSense</span>
+                <span class="count">1</span>
+              </a>
+              <a href="#" class="category-list-item">
+                <span>收益指南</span>
+                <span class="count">0</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Sidebar CTA -->
+          <div class="sidebar-card sidebar-cta">
+            <h4>⚡ 立即计算</h4>
+            <p>输入你的播放量和 RPM，<br>秒级估算 YouTube 广告收益。</p>
+            <a href="/calculators/youtube-money-calculator.html" class="btn">▶ 开始计算</a>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       CTA Section
+       ============================== -->
+  <section class="section cta-section">
+    <div class="container">
+      <div class="cta-content reveal">
+        <h2>还不确定你的广告收益？</h2>
+        <p>使用我们的免费计算工具，输入基础数据即可获得精准收益估算。无需注册，完全免费。</p>
+        <a href="/calculators/youtube-money-calculator.html" class="btn btn-primary btn-lg">立即免费计算 →</a>
+        <div class="cta-trust">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          完全免费 · 无需注册 · 数据本地计算
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       Newsletter Section
+       ============================== -->
+  <section class="section newsletter-section">
+    <div class="container">
+      <div class="newsletter-content reveal">
+        <span class="section-label">📬 订阅更新</span>
+        <h2>获取最新的广告收益知识</h2>
+        <p>订阅我们的邮件列表，第一时间收到最新的博客文章、CPM 数据更新和收益优化技巧。</p>
+        <form class="newsletter-box" onsubmit="event.preventDefault();alert('感谢订阅！功能即将上线。');">
+          <input type="email" placeholder="输入你的邮箱地址" required aria-label="邮箱地址">
+          <button type="submit" class="btn btn-primary">立即订阅</button>
+        </form>
+        <p class="newsletter-disclaimer">订阅即表示你同意我们的 <a href="/privacy.html">隐私政策</a>。我们不会发送垃圾邮件，可随时退订。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================
+       Scripts
+       ============================== -->
+  <script src="/assets/js/main.js"></script>
+  <script>
+    /* ---------- Category Tag Filter (UI only) ---------- */
+    document.addEventListener('DOMContentLoaded', function () {
+      var tags = document.querySelectorAll('.category-tags a');
+      tags.forEach(function (tag) {
+        tag.addEventListener('click', function (e) {
+          e.preventDefault();
+          tags.forEach(function (t) { t.classList.remove('active'); t.removeAttribute('aria-selected'); });
+          this.classList.add('active');
+          this.setAttribute('aria-selected', 'true');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

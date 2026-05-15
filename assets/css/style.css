@@ -2330,6 +2330,62 @@ p {
 .reveal-delay-4 { transition-delay: 0.4s; }
 
 /* ============================================
+   Blog Inner SEO Linking System
+   用于博客文章底部的内链模块
+   ============================================ */
+
+/* Section with controlled spacing for mid-page insertion */
+.blog-inner-section {
+  padding: 3.5rem 0;
+}
+.blog-inner-section + .blog-inner-section {
+  padding-top: 0;
+}
+
+/* Related Articles grid — more compact for inner page */
+.related-articles-grid {
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+.related-articles-grid .blog-card-cover {
+  height: 110px;
+  font-size: 2rem;
+}
+.related-articles-grid .blog-card-body {
+  padding: 1rem 1.2rem 1.2rem;
+}
+.related-articles-grid .blog-card-modern h3 {
+  font-size: 0.85rem;
+  margin-bottom: 0.2rem;
+}
+.related-articles-grid .blog-card-modern .blog-card-body p {
+  font-size: 0.78rem;
+  margin-bottom: 0.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* FAQ inside blog — tighter header spacing */
+.blog-inner-faq .section-header {
+  margin-bottom: 2.5rem;
+}
+.blog-inner-faq .faq-list {
+  max-width: 800px;
+}
+
+/* CTA inside blog — reduced padding */
+.blog-inner-cta {
+  padding: 3.5rem 0;
+}
+
+/* Tools section inside blog */
+.blog-inner-tools .related-grid {
+  max-width: 800px;
+}
+
+/* ============================================
    Enhanced Responsive — v2 components
    ============================================ */
 @media (max-width: 1024px) {
@@ -2433,5 +2489,21 @@ p {
   }
   .content-article h2 {
     font-size: 1.25rem;
+  }
+  .blog-inner-section {
+    padding: 2.5rem 0;
+  }
+  .blog-inner-cta {
+    padding: 2.5rem 0;
+  }
+  .blog-inner-cta .cta-content h2 {
+    font-size: 1.35rem;
+  }
+  .related-articles-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .related-articles-grid .blog-card-cover {
+    height: 90px;
   }
 }
