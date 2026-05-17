@@ -61,6 +61,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://adcalcs.com/blog/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://adcalcs.com/blog/what-is-cpm.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -92,6 +97,11 @@
   </url>
   <url>
     <loc>https://adcalcs.com/blog/adsense-website-earnings.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://adcalcs.com/blog/youtube-vs-tiktok-earnings-comparison.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
