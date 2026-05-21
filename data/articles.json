@@ -1,0 +1,192 @@
+{
+  "site": {
+    "url": "https://adcalcs.com",
+    "name": "AdCalcs",
+    "blogTitle": "广告收益知识博客",
+    "blogDescription": "深入了解 CPM、RPM、YouTube 收益、TikTok 收益和 AdSense 收入的核心概念。为内容创作者和广告投放人员提供实用的收益知识。",
+    "perPage": 6
+  },
+  "categories": [
+    {
+      "slug": "youtube",
+      "name": "YouTube 收益",
+      "description": "YouTube 广告收益相关文章，包括 CPM、RPM、播放量收入、收益优化等深度解析。",
+      "intro": "YouTube 是内容创作者最主要的变现平台之一。从 CPM 到 RPM，从一万播放到百万播放，这些文章帮你全面理解 YouTube 的收益机制。"
+    },
+    {
+      "slug": "cpm",
+      "name": "CPM",
+      "description": "CPM 千次展示成本的全面解读，帮助你理解广告定价机制和不同国家的 CPM 差异。",
+      "intro": "CPM（Cost Per Mille）是数字广告的定价基石。了解 CPM 的计算方式、影响因素和全球差异，是优化广告收益的第一步。"
+    },
+    {
+      "slug": "rpm",
+      "name": "RPM",
+      "description": "RPM 千次展示收入详解，揭秘内容创作者的真实收益和优化方法。",
+      "intro": "RPM（Revenue Per Mille）是创作者真正关心的收益指标。了解 RPM 与 CPM 的核心区别，掌握提升 RPM 的实战方法。"
+    },
+    {
+      "slug": "tiktok",
+      "name": "TikTok 收益",
+      "description": "TikTok 创作基金和变现方式的收益分析，帮助创作者了解平台收入机制。",
+      "intro": "TikTok 的变现方式和 YouTube 截然不同。从 Creator Fund 到品牌合作，了解 TikTok 的真实收入水平和最佳变现策略。"
+    },
+    {
+      "slug": "adsense",
+      "name": "AdSense",
+      "description": "Google AdSense 网站广告收入的计算方法和优化技巧。",
+      "intro": "AdSense 是全球最大的网站广告联盟。了解 RPM、CTR 和 CPC 如何影响你的网站收入，掌握提升 AdSense 收益的实战方法。"
+    },
+    {
+      "slug": "guide",
+      "name": "收益指南",
+      "description": "跨平台收益对比和变现策略指南，帮助创作者选择最适合的变现平台。",
+      "intro": "不同平台的收益模式各有优劣。从 YouTube 到 TikTok，从广告收入到品牌合作，这些对比分析帮你做出更明智的变现决策。"
+    }
+  ],
+  "articles": [
+    {
+      "slug": "youtube-views-no-earnings",
+      "title": "为什么 YouTube 有播放却没收益？6个常见原因解析",
+      "description": "辛辛苦苦做的视频有几万播放，结果后台收益却是 0？不是平台吞了你的钱，这 6 个原因才是真正的「罪魁祸首」。",
+      "category": "youtube",
+      "coverEmoji": "❓",
+      "coverGradient": "linear-gradient(135deg,#dbeafe,#ede9fe)",
+      "readingTime": 10,
+      "datePublished": "2026-05-20",
+      "dateModified": "2026-05-20",
+      "popular": true,
+      "relatedCalculators": ["youtube-money-calculator"]
+    },
+    {
+      "slug": "youtube-cpm-vs-rpm-difference",
+      "title": "YouTube CPM 和 RPM 有什么区别？新手最容易搞混的概念",
+      "description": "CPM 和 RPM 的区别到底在哪？为什么 RPM 永远比 CPM 低？用真实案例、表格对比和数字拆解讲清楚两个核心收益指标。",
+      "category": "youtube",
+      "coverEmoji": "📊",
+      "coverGradient": "linear-gradient(135deg,#dbeafe,#fce7f3)",
+      "readingTime": 10,
+      "datePublished": "2026-05-19",
+      "dateModified": "2026-05-19",
+      "popular": false,
+      "relatedCalculators": ["youtube-money-calculator", "cpm-calculator", "rpm-calculator"]
+    },
+    {
+      "slug": "youtube-cpm-drop-reasons",
+      "title": "为什么 YouTube CPM 会突然下降？6个原因+解决方案",
+      "description": "季节性、Shorts占比、观众地区变化……用真实数据和案例告诉你 CPM 下降的真正原因和应对方法。",
+      "category": "youtube",
+      "coverEmoji": "📉",
+      "coverGradient": "linear-gradient(135deg,#ede9fe,#fef3c7)",
+      "readingTime": 9,
+      "datePublished": "2026-05-18",
+      "dateModified": "2026-05-18",
+      "popular": false,
+      "relatedCalculators": ["youtube-money-calculator", "cpm-calculator"]
+    },
+    {
+      "slug": "youtube-vs-tiktok-earnings-comparison",
+      "title": "YouTube和TikTok到底哪个赚钱多？2026最新收益对比",
+      "description": "从RPM、CPM、播放量收入到变现门槛，用真实数据全方位对比YouTube和TikTok的赚钱能力。",
+      "category": "guide",
+      "coverEmoji": "⚖️",
+      "coverGradient": "linear-gradient(135deg,#fce7f3,#fef3c7)",
+      "readingTime": 8,
+      "datePublished": "2026-05-17",
+      "dateModified": "2026-05-17",
+      "popular": false,
+      "relatedCalculators": ["youtube-money-calculator", "tiktok-money-calculator"]
+    },
+    {
+      "slug": "tiktok-10000-views-earnings",
+      "title": "TikTok 一万播放到底能赚多少钱？",
+      "description": "真实数据告诉你 TikTok 一万播放的 Creator Fund 收入，以及品牌合作、直播打赏、电商带货等更赚钱的变现方式。",
+      "category": "tiktok",
+      "coverEmoji": "🎵",
+      "coverGradient": "linear-gradient(135deg,#fef3c7,#fed7aa)",
+      "readingTime": 8,
+      "datePublished": "2026-05-15",
+      "dateModified": "2026-05-15",
+      "popular": false,
+      "relatedCalculators": ["tiktok-money-calculator"]
+    },
+    {
+      "slug": "adsense-website-earnings",
+      "title": "AdSense 收入计算公式：每天 1000 流量能赚多少钱？",
+      "description": "完整 AdSense 收入计算公式，不同行业 RPM 数据表，三个实战案例拆解，帮你精准估算谷歌广告收入。",
+      "category": "adsense",
+      "coverEmoji": "📢",
+      "coverGradient": "linear-gradient(135deg,#dbeafe,#fce7f3)",
+      "readingTime": 9,
+      "datePublished": "2026-05-15",
+      "dateModified": "2026-05-15",
+      "popular": false,
+      "relatedCalculators": ["adsense-calculator"]
+    },
+    {
+      "slug": "youtube-10000-views-earnings",
+      "title": "YouTube 一万播放到底能赚多少钱？",
+      "description": "一万播放从 $1 到 $150 不等，差距全在内容类型和观众地区。用真实数据和案例告诉你影响收益的真正因素。",
+      "category": "youtube",
+      "coverEmoji": "💰",
+      "coverGradient": "linear-gradient(135deg,#fce7f3,#dbeafe)",
+      "readingTime": 7,
+      "datePublished": "2026-05-15",
+      "dateModified": "2026-05-15",
+      "popular": true,
+      "relatedCalculators": ["youtube-money-calculator"]
+    },
+    {
+      "slug": "how-much-does-youtube-pay",
+      "title": "YouTube 播放量收益全解析",
+      "description": "100 万播放量到底能赚多少钱？深入分析影响 YouTube 收入的各类因素，包括视频长度、观众地区、内容类型等。",
+      "category": "youtube",
+      "coverEmoji": "▶",
+      "coverGradient": "linear-gradient(135deg,#ede9fe,#fce7f3)",
+      "readingTime": 6,
+      "datePublished": "2026-05-01",
+      "dateModified": "2026-05-01",
+      "popular": true,
+      "relatedCalculators": ["youtube-money-calculator"]
+    },
+    {
+      "slug": "youtube-cpm-by-country",
+      "title": "各国 YouTube CPM 排名（2026 更新）",
+      "description": "不同国家的 YouTube CPM 差异巨大。美国 vs 印度差距可达 20 倍。查看完整排名，优化你的内容策略。",
+      "category": "cpm",
+      "coverEmoji": "🌍",
+      "coverGradient": "linear-gradient(135deg,#fef3c7,#fed7aa)",
+      "readingTime": 6,
+      "datePublished": "2026-04-01",
+      "dateModified": "2026-05-01",
+      "popular": true,
+      "relatedCalculators": ["cpm-calculator", "youtube-money-calculator"]
+    },
+    {
+      "slug": "what-is-rpm",
+      "title": "什么是 RPM？—— 千次展示收入深度解析",
+      "description": "RPM 是内容创作者最关心的收益指标。了解 RPM 与 CPM 的区别，掌握提升 RPM 的实战方法。",
+      "category": "rpm",
+      "coverEmoji": "📈",
+      "coverGradient": "linear-gradient(135deg,#ede9fe,#dbeafe)",
+      "readingTime": 5,
+      "datePublished": "2026-03-15",
+      "dateModified": "2026-03-15",
+      "popular": false,
+      "relatedCalculators": ["rpm-calculator", "youtube-money-calculator"]
+    },
+    {
+      "slug": "what-is-cpm",
+      "title": "什么是 CPM？—— 千次展示成本全面解读",
+      "description": "CPM 是数字广告中最核心的指标之一。本文详细解释 CPM 的含义、计算方法以及它在广告收益中的关键作用。",
+      "category": "cpm",
+      "coverEmoji": "📊",
+      "coverGradient": "linear-gradient(135deg,#dbeafe,#ede9fe)",
+      "readingTime": 5,
+      "datePublished": "2026-03-01",
+      "dateModified": "2026-03-01",
+      "popular": true,
+      "relatedCalculators": ["cpm-calculator"]
+    }
+  ]
+}

@@ -1,8 +1,4 @@
-# AdCalcs.com
-# 允许所有爬虫访问
-
 User-agent: *
 Allow: /
 
-# Sitemap
 Sitemap: https://adcalcs.com/sitemap.xml

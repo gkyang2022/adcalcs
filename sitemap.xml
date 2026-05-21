@@ -60,33 +60,63 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
+    <url>
     <loc>https://adcalcs.com/blog/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://adcalcs.com/blog/what-is-cpm.html</loc>
+    <loc>https://adcalcs.com/blog/page/2/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://adcalcs.com/blog/youtube/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://adcalcs.com/blog/cpm/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://adcalcs.com/blog/rpm/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://adcalcs.com/blog/tiktok/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://adcalcs.com/blog/adsense/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://adcalcs.com/blog/guide/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://adcalcs.com/blog/youtube-views-no-earnings.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://adcalcs.com/blog/what-is-rpm.html</loc>
+    <loc>https://adcalcs.com/blog/youtube-cpm-vs-rpm-difference.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://adcalcs.com/blog/youtube-cpm-by-country.html</loc>
+    <loc>https://adcalcs.com/blog/youtube-cpm-drop-reasons.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://adcalcs.com/blog/youtube-10000-views-earnings.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://adcalcs.com/blog/how-much-does-youtube-pay.html</loc>
+    <loc>https://adcalcs.com/blog/youtube-vs-tiktok-earnings-comparison.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -101,17 +131,27 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://adcalcs.com/blog/youtube-vs-tiktok-earnings-comparison.html</loc>
+    <loc>https://adcalcs.com/blog/youtube-10000-views-earnings.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://adcalcs.com/blog/youtube-cpm-drop-reasons.html</loc>
+    <loc>https://adcalcs.com/blog/how-much-does-youtube-pay.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://adcalcs.com/blog/youtube-cpm-vs-rpm-difference.html</loc>
+    <loc>https://adcalcs.com/blog/youtube-cpm-by-country.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://adcalcs.com/blog/what-is-rpm.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://adcalcs.com/blog/what-is-cpm.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
