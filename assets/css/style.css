@@ -2742,3 +2742,41 @@ p {
     height: 38px;
   }
 }
+
+/* ============================================
+   Post Navigation (prev/next)
+   ============================================ */
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 2rem 0;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--gray-200);
+}
+.post-nav a {
+  flex: 1;
+  text-decoration: none;
+  color: var(--gray-700);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  transition: background 0.2s;
+  font-size: 0.9rem;
+}
+.post-nav a:hover {
+  background: var(--gray-50);
+}
+.post-nav .nav-label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--gray-400);
+  margin-bottom: 0.25rem;
+}
+.post-nav .nav-next {
+  text-align: right;
+}
+@media (max-width: 480px) {
+  .post-nav { flex-direction: column; }
+  .post-nav .nav-next { text-align: left; }
+}
