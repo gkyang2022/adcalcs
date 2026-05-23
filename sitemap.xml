@@ -71,6 +71,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://adcalcs.com/blog/page/3/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://adcalcs.com/blog/youtube/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -98,6 +103,11 @@
   <url>
     <loc>https://adcalcs.com/blog/guide/</loc>
     <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://adcalcs.com/blog/adsense/why-is-adsense-revenue-so-low.html</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
