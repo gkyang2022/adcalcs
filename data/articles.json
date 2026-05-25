@@ -46,6 +46,19 @@
   ],
   "articles": [
     {
+      "slug": "youtube-video-length-earnings-impact",
+      "title": "YouTube 视频时长对广告收益影响有多大？8分钟10分钟20分钟收益差距解析",
+      "description": "8 分钟以上的视频可以插 mid-roll 广告，但视频越长收益一定越高吗？用数据对比 5 分钟、8 分钟、10 分钟、20 分钟视频的 RPM 差距、广告数量和收益潜力。",
+      "category": "youtube",
+      "coverEmoji": "⏱",
+      "coverGradient": "linear-gradient(135deg,#fef3c7,#dbeafe)",
+      "readingTime": 10,
+      "datePublished": "2026-05-25",
+      "dateModified": "2026-05-25",
+      "popular": true,
+      "relatedCalculators": ["youtube-money-calculator", "cpm-calculator", "rpm-calculator"]
+    },
+    {
       "slug": "adsense/why-is-adsense-revenue-so-low",
       "title": "为什么 AdSense 收益这么低？8 个常见原因解析",
       "description": "辛辛苦苦写文章，每天几千流量，AdSense 收益却只有几毛钱？可能是流量地区、CPC 单价、广告填充率这些隐藏因素在拖后腿。8 个原因 + 提升方法全解析。",
