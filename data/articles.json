@@ -46,6 +46,19 @@
   ],
   "articles": [
     {
+      "slug": "high-cpm-youtube-channels",
+      "title": "哪些 YouTube 频道 CPM 高？2026 广告收益最高的频道类型解析",
+      "description": "财经频道 CPM 可达 $15-$30，搞笑频道可能只有 $1-$3。2026 年各类型 YouTube 频道 CPM 排名，什么类型频道最赚钱？附收益提升方法。",
+      "category": "youtube",
+      "coverEmoji": "🏆",
+      "coverGradient": "linear-gradient(135deg,#fef3c7,#fce7f3)",
+      "readingTime": 11,
+      "datePublished": "2026-05-27",
+      "dateModified": "2026-05-27",
+      "popular": true,
+      "relatedCalculators": ["youtube-money-calculator", "cpm-calculator"]
+    },
+    {
       "slug": "youtube-video-length-earnings-impact",
       "title": "YouTube 视频时长对广告收益影响有多大？8分钟10分钟20分钟收益差距解析",
       "description": "8 分钟以上的视频可以插 mid-roll 广告，但视频越长收益一定越高吗？用数据对比 5 分钟、8 分钟、10 分钟、20 分钟视频的 RPM 差距、广告数量和收益潜力。",
