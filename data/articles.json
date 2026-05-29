@@ -46,6 +46,19 @@
   ],
   "articles": [
     {
+      "slug": "chinese-website-adsense-low-earnings",
+      "title": "中文网站 AdSense 收益低吗？为什么中文流量广告单价普遍偏低",
+      "description": "同样是 1 万流量，英文网站赚几十美元，中文网站可能只有几美元。详解中文网站 AdSense 单价低的原因与 7 个提升方法。",
+      "category": "adsense",
+      "coverEmoji": "🌏",
+      "coverGradient": "linear-gradient(135deg,#fef3c7,#ede9fe)",
+      "readingTime": 12,
+      "datePublished": "2026-05-28",
+      "dateModified": "2026-05-28",
+      "popular": true,
+      "relatedCalculators": ["adsense-calculator", "cpm-calculator", "rpm-calculator"]
+    },
+    {
       "slug": "high-cpm-youtube-channels",
       "title": "哪些 YouTube 频道 CPM 高？2026 广告收益最高的频道类型解析",
       "description": "财经频道 CPM 可达 $15-$30，搞笑频道可能只有 $1-$3。2026 年各类型 YouTube 频道 CPM 排名，什么类型频道最赚钱？附收益提升方法。",
