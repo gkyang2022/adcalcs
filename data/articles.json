@@ -46,6 +46,19 @@
   ],
   "articles": [
     {
+      "slug": "how-much-website-traffic-to-make-money",
+      "title": "网站流量多少才能赚钱？不同流量规模的网站收入分析（2026）",
+      "description": "一天 100 访问量和一天 1 万访问量，收入差距有多大？不同流量规模的网站真实收入分析，附 RPM 计算公式和 2026 年各行业广告单价参考。",
+      "category": "adsense",
+      "coverEmoji": "📈",
+      "coverGradient": "linear-gradient(135deg,#fce7f3,#dbeafe)",
+      "readingTime": 12,
+      "datePublished": "2026-06-01",
+      "dateModified": "2026-06-01",
+      "popular": true,
+      "relatedCalculators": ["adsense-calculator", "cpm-calculator", "rpm-calculator"]
+    },
+    {
       "slug": "chinese-website-adsense-low-earnings",
       "title": "中文网站 AdSense 收益低吗？为什么中文流量广告单价普遍偏低",
       "description": "同样是 1 万流量，英文网站赚几十美元，中文网站可能只有几美元。详解中文网站 AdSense 单价低的原因与 7 个提升方法。",
