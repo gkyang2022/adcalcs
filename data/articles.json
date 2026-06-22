@@ -46,6 +46,19 @@
   ],
   "articles": [
     {
+      "slug": "english-vs-chinese-websites-earnings",
+      "title": "英文网站和中文网站哪个更赚钱？2026 网站广告收益全面对比",
+      "description": "同样流量英文网站收入往往是中文网站的数倍？从 RPM、CPC、流量价值、变现方式全面对比，附真实收入案例和提升建议。",
+      "category": "adsense",
+      "coverEmoji": "🌐",
+      "coverGradient": "linear-gradient(135deg,#dbeafe,#fce7f3)",
+      "readingTime": 13,
+      "datePublished": "2026-06-22",
+      "dateModified": "2026-06-22",
+      "popular": true,
+      "relatedCalculators": ["adsense-calculator", "cpm-calculator", "rpm-calculator"]
+    },
+    {
       "slug": "how-much-website-traffic-to-make-money",
       "title": "网站流量多少才能赚钱？不同流量规模的网站收入分析（2026）",
       "description": "一天 100 访问量和一天 1 万访问量，收入差距有多大？不同流量规模的网站真实收入分析，附 RPM 计算公式和 2026 年各行业广告单价参考。",
